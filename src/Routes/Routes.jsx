@@ -6,8 +6,11 @@ import Loading from "../Components/Loading/Loading";
 import AllProperties from "../Pages/AllProperties/AllProperties";
 import AddProperties from "../Pages/AddProperties/AddProperties";
 import MyProperties from "../Pages/MyProperties/MyProperties";
-import MyRatings from "../Pages/MyRtaings/MyRatings";
-
+import Login from "../Components/Login/Login";
+import Register from "../Components/Register/Register";
+import MyRatings from "../Pages/MyRatings/MyRatings";
+import AuthLayouts from "../Components/AuthLayouts/AuthLayouts";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -26,17 +29,37 @@ export const router = createBrowserRouter([
         },
          {
             path:'/add-properties',
-            element:<AddProperties></AddProperties>,
+            element:<PrivateRoutes>
+              <AddProperties></AddProperties>
+            </PrivateRoutes>
         },
          {
             path:'/my-properties',
-            element:<MyProperties></MyProperties>,
+            element:<PrivateRoutes>
+              <MyProperties></MyProperties>
+            </PrivateRoutes>
         },
          {
             path:'/my-ratings',
-            element:<MyRatings></MyRatings>,
+            element:<PrivateRoutes>
+              <MyRatings></MyRatings>
+            </PrivateRoutes>
         },
 
     ]
   },
+  {
+          path:'/auth',
+          element:<AuthLayouts></AuthLayouts>,
+          children:[
+              {
+                path: '/auth/login',
+                element:<Login></Login>,
+              },
+              {
+                path: '/auth/register',
+                element:<Register></Register>,
+              }
+          ],
+        }
 ]);

@@ -1,8 +1,20 @@
-import React from 'react';
 import './Navbar.css'
 import { Link, NavLink } from 'react-router';
 import logo from '../../assets/real-estate-logo.jpg'
+import userIcon from '../../assets/user.png'
+import toast, { Toaster } from 'react-hot-toast';
+import {useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
 const Navbar = () => {
+   const {user,signOutUser} = useContext(AuthContext);
+   const handleLogOut =() =>{
+     signOutUser()
+          .then(result => {
+            toast.success('SignOut successfully')  
+            })
+            .catch(error => {
+            })
+   }
     const links = <>
     <li><NavLink  to='/' className='m-2'>Home</NavLink></li>
     <li><NavLink to='/all-properties'  className='m-2'>All Properties</NavLink></li>
@@ -32,10 +44,19 @@ const Navbar = () => {
     </ul>
   </div>
 
+ <div className='login-btn flex-col  sm:flex-row flex  justify-center items-center '>
+  <img src={`${user ? user.photoURL : userIcon}`} title={`${user ? user.displayName : "Guest User"}`} className='h-12 w-12  rounded-full hover:scale-105 transition ease-in-out mt-10   lg:mt-0 lg:mr-5' alt="" /> 
+  {
+    user ? (<button onClick={handleLogOut}  className='btn btn-primary m-2  grid md:flex lg:flex hover:bg-indigo-300'>LogOut</button>) : (<div className="navbar-end grid md:flex lg:flex">
 <div className="navbar-end flex flex-col lg:flex-row  lg:mt-0 ml-20 gap-2 ">
       <Link to='/auth/login' className='btn btn-primary hover:bg-indigo-300'>Login</Link>
     <Link to='/auth/register' className='btn btn-primary  w-18 lg:w-22 hover:bg-indigo-300'>Sign Up</Link>
 </div>
+  </div>)
+  }
+  
+  </div>
+  <Toaster></Toaster>
   </div>)
   
  
