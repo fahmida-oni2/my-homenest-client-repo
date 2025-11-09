@@ -13,7 +13,7 @@ const Footer = () => {
           <p>
             HomeNest
             <br />
-            Providing reliable real estate services since 1992
+            Providing reliable real estate services since 2005
           </p>
         </aside>
         <nav>
