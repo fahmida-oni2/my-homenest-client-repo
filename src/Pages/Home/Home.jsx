@@ -30,7 +30,7 @@ const Home = () => {
       <div className="flex flex-col items-center bg-white p-6 rounded-xl shadow-md   animate__animated animate__fadeInLeft">
         <div>
             <img src="https://i.ibb.co.com/DHtBCZ6F/image.png" alt="" className="w-full h-48 object-cover"/>
-        <span class="absolute bottom-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-md shadow-md">
+        <span class="absolute bg-primary bottom-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-md shadow-md">
             4 listings
         </span>
         </div>
@@ -56,7 +56,7 @@ const Home = () => {
     <div className="flex flex-col items-center bg-white p-6 rounded-xl shadow-md   animate__animated animate__fadeInLeft">
         <div>
             <img src="https://i.ibb.co.com/gLg1bZx5/person1.jpg" alt="" className="w-full h-48 object-cover"/>
-        <span class="absolute bottom-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-md shadow-md">
+        <span class="absolute bg-primary bottom-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-md shadow-md">
             2 listings
         </span>
         </div>
@@ -82,7 +82,7 @@ const Home = () => {
     <div className="flex flex-col items-center bg-white p-6 rounded-xl shadow-md   animate__animated animate__fadeInLeft">
         <div>
             <img src="https://i.ibb.co.com/7JGxC0QY/person2jpg.jpg" alt="" className="w-full h-48 object-cover"/>
-        <span class="absolute bottom-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-md shadow-md">
+        <span class="absolute bg-primary bottom-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-md shadow-md">
             5 listings
         </span>
         </div>
@@ -108,7 +108,7 @@ const Home = () => {
     <div className="flex flex-col items-center bg-white p-6 rounded-xl shadow-md   animate__animated animate__fadeInLeft">
         <div>
             <img src="https://i.ibb.co.com/W4pVzyd5/person3.jpg" alt="" className="w-full h-48 object-cover"/>
-        <span class="absolute bottom-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-md shadow-md">
+        <span class="absolute  bottom-4 left-4 bg-primary text-white text-xs font-semibold px-3 py-1 rounded-md shadow-md">
             3 listings
         </span>
         </div>
@@ -170,7 +170,7 @@ const Home = () => {
                       required
                     />
                     <label className="label font-bold text-black">
-                      Message{" "}
+                      Message
                     </label>
                     <input
                       type="text"
