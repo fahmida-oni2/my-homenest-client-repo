@@ -96,7 +96,7 @@ const Navbar = () => {
             />
 
             {isDropdownOpen && (
-              <div className="absolute right-0 mt-1 w-48 bg-white rounded-md shadow-lg  border border-gray-200">
+              <div className="absolute right-0 mt-1 w-48 z-5 bg-white rounded-md shadow-lg  border border-gray-200">
                 <div className="py-1">
                   <span className="block px-4 py-2 text-sm text-gray-700 font-semibold truncate">
                     {user.displayName}
@@ -107,7 +107,7 @@ const Navbar = () => {
                   <div className="">
                     <button
                     onClick={handleLogOut}
-                    className=" px-4 py-2 w-full  text-sm font-bold  hover:bg-indigo-300"
+                    className=" px-4 py-2 w-full  text-sm font-bold btn btn-primary hover:bg-indigo-300"
                   >
                     Logout
                   </button>
