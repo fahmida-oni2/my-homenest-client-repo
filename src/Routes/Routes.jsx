@@ -11,6 +11,7 @@ import Register from "../Components/Register/Register";
 import MyRatings from "../Pages/MyRatings/MyRatings";
 import AuthLayouts from "../Components/AuthLayouts/AuthLayouts";
 import PrivateRoutes from "./PrivateRoutes";
+import PropertyDetails from "../Pages/PropertyDetails/PropertyDetails";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,8 @@ export const router = createBrowserRouter([
          {
             path:'/all-properties',
             element:<AllProperties></AllProperties>,
+            loader:()=> fetch('http://localhost:3000/allProperties')
+
         },
          {
             path:'/add-properties',
@@ -44,6 +47,12 @@ export const router = createBrowserRouter([
             element:<PrivateRoutes>
               <MyRatings></MyRatings>
             </PrivateRoutes>
+        },
+          {
+            path:'/all-properties/:_id',
+           element: <PrivateRoutes>
+            <PropertyDetails></PropertyDetails>
+           </PrivateRoutes>
         },
 
     ]
