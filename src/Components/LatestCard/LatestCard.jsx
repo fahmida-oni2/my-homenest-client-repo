@@ -1,10 +1,8 @@
 import React from 'react';
-import { FaDollarSign, FaStar } from 'react-icons/fa';
-import { FaMoneyBill } from 'react-icons/fa6';
 import { Link } from 'react-router';
 
-const Card = ({property}) => {
-    const {propertyName,postedByName,price,category,location,imageUrl,_id}=property
+const LatestCard = ({property}) => {
+    const {propertyName,description,price,category,location,imageUrl,_id}=property
     return (
   <div className="card bg-base-100 border-gray-300 shadow-xl  hover:scale-105 transition ease-in-out m-5 ">
   <figure className='h-48 overflow-hidden'>
@@ -15,10 +13,10 @@ const Card = ({property}) => {
   </figure>
   <div className="card-body space-y-3">
     <h2 className="text-2xl font-bold text-center">{propertyName}</h2>
-        <h2 className="text-center">Category:{category}</h2>
-         <h2 className=" text-center">Posted by: {postedByName}</h2>
+        <h2 className=" text-center">Category:{category}</h2>
+         <h2 className=" text-center">{description}</h2>
 
-   <div className='flex justify-between'>
+  <div className='flex justify-between'>
     <p className=''>
       {location}
     </p>
@@ -34,4 +32,4 @@ const Card = ({property}) => {
     );
 };
 
-export default Card;
+export default LatestCard;
