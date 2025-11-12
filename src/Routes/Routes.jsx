@@ -12,6 +12,7 @@ import MyRatings from "../Pages/MyRatings/MyRatings";
 import AuthLayouts from "../Components/AuthLayouts/AuthLayouts";
 import PrivateRoutes from "./PrivateRoutes";
 import PropertyDetails from "../Pages/PropertyDetails/PropertyDetails";
+import UpdateProperty from "../Pages/UpdateProperty/UpdateProperty";
 
 export const router = createBrowserRouter([
   {
@@ -52,6 +53,12 @@ export const router = createBrowserRouter([
             path:'/all-properties/:_id',
            element: <PrivateRoutes>
             <PropertyDetails></PropertyDetails>
+           </PrivateRoutes>
+        },
+         {
+            path:'/update-properties/:_id',
+           element: <PrivateRoutes>
+           <UpdateProperty></UpdateProperty>
            </PrivateRoutes>
         },
 
