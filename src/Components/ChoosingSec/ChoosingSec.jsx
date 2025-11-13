@@ -3,7 +3,7 @@ import React from 'react';
 const ChoosingSec = () => {
     return (
         <div className="max-w-6xl mx-auto text-center px-4">
-    <h2 className="text-4xl font-bold mb-4 animate__animated animate__fadeInDown">
+    <h2 className="text-4xl text-black font-bold mb-4 animate__animated animate__fadeInDown">
       Why Choose Us
     </h2>
     <p className="text-gray-600 mb-12 animate__animated animate__fadeInUp">

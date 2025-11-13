@@ -9,7 +9,7 @@ const Login = () => {
    const [show,setShow]= useState(false)
   const [error,setError]=useState("");
     const emailRef = useRef(null);
-    const {signIn,signInWihGoogle,forgotPassword} = use(AuthContext)
+    const {signIn,signInWihGoogle} = use(AuthContext)
     const location =useLocation();
     const navigate = useNavigate();
     const handleLogin =(e)=>{
@@ -46,19 +46,7 @@ const Login = () => {
                toast.error('error')
             })
     }
-    const handleForgotPassword=(e)=>{
-      e.preventDefault();
-      // console.log(emailRef.current.value)
-      const email = emailRef.current.value
-      forgotPassword(email)
-       .then(result => {
-             toast.success('check your email')
-            })
-            .catch(error => {
-              toast.error('error')
-            })
 
-    }
     return (
        <div className="hero bg-base-200 min-h-screen">
   <div className="hero-content flex-col lg:flex">
@@ -75,11 +63,7 @@ const Login = () => {
           <input  name='password' type={show?"text" :"password"}  className="input" placeholder="Password"  required />
           <span onClick={()=> setShow(!show)} className='absolute right-2 top-8  cursor-pointer z-50 '>{show ? <FaEye className='w-10 h-4'></FaEye> :<IoEyeOff className='w-10 h-4'></IoEyeOff> }</span>
            </div>
-             <div>
-               <button onClick={ handleForgotPassword} type='submit' className="link link-hover text-sm" >
-                 Forgot password?
-                </button>
-    </div>
+
           {
             error && <p className='text-red-400 text-xs'>{error}</p>
           }

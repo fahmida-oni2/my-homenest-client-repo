@@ -14,7 +14,7 @@ const Home = () => {
       <Banner></Banner>
 
       <section className=" py-16 bg-gray-50 text-center px-4">
-        <h2 className="text-4xl font-bold mb-4 animate__animated animate__fadeInDown">
+        <h2 className="text-4xl text-black font-bold mb-4 animate__animated animate__fadeInDown">
       Our Latest Properties
     </h2>
     <p className="text-gray-600 mb-12 animate__animated animate__fadeInUp">
@@ -36,7 +36,7 @@ const Home = () => {
       </section>
       <section className=" py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto text-center px-4">
-          <h2 className="text-4xl font-bold mb-4 animate__animated animate__fadeInDown">
+          <h2 className="text-4xl text-black font-bold mb-4 animate__animated animate__fadeInDown">
             Real Estate Agent
           </h2>
           <p className="text-gray-600 mb-12 animate__animated animate__fadeInUp">
@@ -47,7 +47,7 @@ const Home = () => {
     <div className="grid md:grid-cols-2 gap-10">
       <div className="flex flex-col items-center bg-white p-6 rounded-xl shadow-md   animate__animated animate__fadeInLeft">
         <div>
-            <img src="https://i.ibb.co.com/DHtBCZ6F/image.png" alt="" className="w-full h-48 object-cover"/>
+            <img src="https://i.ibb.co.com/DHtBCZ6F/image.png" alt="" className="w-50 h-50  rounded-full"/>
         <span className="absolute bg-primary bottom-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-md shadow-md">
             4 listings
         </span>
@@ -73,7 +73,7 @@ const Home = () => {
     </div>
     <div className="flex flex-col items-center bg-white p-6 rounded-xl shadow-md   animate__animated animate__fadeInLeft">
         <div>
-            <img src="https://i.ibb.co.com/gLg1bZx5/person1.jpg" alt="" className="w-full h-48 object-cover"/>
+            <img src="https://i.ibb.co.com/gLg1bZx5/person1.jpg" alt="" className="w-50 h-50  rounded-full"/>
         <span className="absolute bg-primary bottom-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-md shadow-md">
             2 listings
         </span>
@@ -99,7 +99,7 @@ const Home = () => {
     </div>
     <div className="flex flex-col items-center bg-white p-6 rounded-xl shadow-md   animate__animated animate__fadeInLeft">
         <div>
-            <img src="https://i.ibb.co.com/7JGxC0QY/person2jpg.jpg" alt="" className="w-full h-48 object-cover"/>
+            <img src="https://i.ibb.co.com/7JGxC0QY/person2jpg.jpg" alt="" className="w-50 h-50  rounded-full"/>
         <span className="absolute bg-primary bottom-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-md shadow-md">
             5 listings
         </span>
@@ -125,7 +125,7 @@ const Home = () => {
     </div>
     <div className="flex flex-col items-center bg-white p-6 rounded-xl shadow-md   animate__animated animate__fadeInLeft">
         <div>
-            <img src="https://i.ibb.co.com/W4pVzyd5/person3.jpg" alt="" className="w-full h-48 object-cover"/>
+            <img src="https://i.ibb.co.com/W4pVzyd5/person3.jpg" alt="" className="w-50 h-50  rounded-full"/>
         <span className="absolute  bottom-4 left-4 bg-primary text-white text-xs font-semibold px-3 py-1 rounded-md shadow-md">
             3 listings
         </span>
@@ -153,8 +153,8 @@ const Home = () => {
         </div>
       </section>
       <section className=" py-16 bg-gray-50">
-        <form>
-          <div className="bg-base-200 max-w-6xl mx-auto  px-4">
+        <form >
+          <div className="bg-base-200 max-w-6xl mx-auto  px-4 ">
             <div className="hero-content flex flex-col ">
               <div>
                 <h1 className="text-4xl font-bold mb-4 animate__animated animate__fadeInDown">

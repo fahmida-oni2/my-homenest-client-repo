@@ -1,13 +1,24 @@
 import "./Navbar.css";
 import { Link, NavLink } from "react-router";
 import logo from "../../assets/real-estate-logo.jpg";
-import userIcon from "../../assets/user.png";
 import toast, { Toaster } from "react-hot-toast";
-import { use, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || "light")
+
+  useEffect(() => {
+    const html = document.querySelector('html')
+     html.setAttribute("data-theme", theme)
+     localStorage.setItem("theme", theme)
+  }, [theme])
+
+
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark": "light")
+  }
   const handleLogOut = () => {
     signOutUser()
       .then((result) => {
@@ -76,11 +87,19 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <img src={logo} className="h-12 w-12 " alt="" />
+        <img src={logo} className="h-12 w-12 mr-3 " alt="" />
         <Link to="/" className=" text-xl font-extrabold text-sky-800">
           HomeNest
         </Link>
+         <div className="flex justify-center items-center ml-2">
+                      <input
+           onChange={(e)=> handleTheme(e.target.checked)}
+           type="checkbox"
+           defaultChecked={localStorage.getItem('theme') === "dark"}
+           className="toggle"/>
+                    </div>
       </div>
+        
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
@@ -104,6 +123,7 @@ const Navbar = () => {
                   <span className="block px-4 py-2 text-sm text-gray-700 font-semibold truncate">
                     {user.email}
                   </span>
+                 
                   <div className="">
                     <button
                     onClick={handleLogOut}

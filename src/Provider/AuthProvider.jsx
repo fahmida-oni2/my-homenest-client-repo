@@ -28,12 +28,6 @@ const AuthProvider = ({children}) => {
     return signOut (auth)
   }
 
-  const updateUser = (updateData)=>{
-    return updateProfile(auth.currentUser,updateData)
-  }
-  const forgotPassword = (email) => {
-    return sendPasswordResetEmail(auth,email)
-  }
     useEffect(()=>{
       const unsubscribe=  onAuthStateChanged(auth,(currentUser)=>{
           setUser(currentUser)
@@ -54,8 +48,6 @@ const AuthProvider = ({children}) => {
          loading,
          setLoading,
          signInWihGoogle,
-         updateUser,
-         forgotPassword,
     }
     return <AuthContext value={authData}>
         {children}

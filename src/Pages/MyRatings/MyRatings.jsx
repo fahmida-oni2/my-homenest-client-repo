@@ -38,7 +38,7 @@ const MyRatings = () => {
   return (
     <div className="max-w-3xl mx-auto p-6 my-10">
       <h1 className="text-3xl font-extrabold  mb-8 border-b pb-2">
-        All Saved Reviews ({allReviews.length})
+        All Reviews ({allReviews.length})
       </h1>
 
       <div className="space-y-6 ">

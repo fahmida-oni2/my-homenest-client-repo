@@ -72,7 +72,7 @@ const UpdateProperty = () => {
           />
         </div>
 
-        {/* Category (Dropdown) */}
+        {/* Category  */}
         <div>
           <label className="block text-sm font-medium text-gray-700">Category:</label>
           <select
@@ -126,7 +126,7 @@ const UpdateProperty = () => {
           />
         </div>
 
-        {/* Image Link Input */}
+        {/* Image Link  */}
         <div>
           <label  className="block text-sm font-medium text-gray-700">Image Link (URL):</label>
           <input
@@ -141,7 +141,7 @@ const UpdateProperty = () => {
         <div className="pt-2 border-t mt-4 border-gray-200">
             <p className="text-lg font-semibold text-gray-700 mb-2">Posted By:</p>
 
-            {/* User Name (Read-only) */}
+            {/* User Name  */}
             <div>
               <label className="block text-sm font-medium text-gray-500">User Name:</label>
               <input
@@ -153,7 +153,7 @@ const UpdateProperty = () => {
               />
             </div>
 
-            {/* User Email (Read-only) */}
+            {/* User Email*/}
             <div>
               <label className="block text-sm font-medium text-gray-500">User Email:</label>
               <input
@@ -166,12 +166,11 @@ const UpdateProperty = () => {
             </div>
         </div>
 
-        {/* Add Property Button */}
         <button
           type="submit"
           className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
         >
-         Submit 
+         Update
         </button>
       </form>
      

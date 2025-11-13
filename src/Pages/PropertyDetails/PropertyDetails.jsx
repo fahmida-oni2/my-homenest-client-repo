@@ -60,8 +60,10 @@ const PropertyDetails = () => {
             {data.propertyName}
           </h1>
           <p className="font-bold text-2xl text-center">
-            {data.category} Posted by{" "}
-            <span className="text-[#632EE3]">{data.postedByName}</span>
+            Category: {data.category}
+          </p>
+           <p className="font-bold text-2xl text-center">
+    Posted by: <span className="text-[#632EE3]">{data.postedByName}</span>
           </p>
           <p className="font-bold text-2xl text-center">
             Contact Email:
@@ -97,8 +99,8 @@ const PropertyDetails = () => {
         </div>
       </div>
 
-      
-      <div className="flex justify-center items-center">
+      {/* --- Review Submission Form (Replacing Enrollment Form) --- */}
+       <div className="flex justify-center items-center">
         <div className="card bg-base-100 w-full lg:max-w-sm shrink-0 shadow-2xl hero-content flex-col mt-5 lg:mt-0">
         <div className="card-body p-6 w-full">
           <form
@@ -118,9 +120,9 @@ const PropertyDetails = () => {
               </label>
               <input
                 type="text"
-                value={user.displayName}
+               id="reviewerName"
                 name="UserName"
-                readOnly
+               {...register("reviewerName")}
                 className="mt-1 block w-full px-3 py-2 border border-gray-200 rounded-md bg-gray-50 text-gray-600 sm:text-sm cursor-not-allowed"
               />
               {errors.reviewerName && (
@@ -129,8 +131,6 @@ const PropertyDetails = () => {
                 </p>
               )}
             </div>
-
-            <div className="flex flex-col items-center  border p-3 rounded-lg bg-gray-50">
               <label className="label block text-base font-medium mb-2">
                 Your Rating
               </label>
@@ -153,8 +153,7 @@ const PropertyDetails = () => {
                   {errors.rating.message}
                 </p>
               )}
-            </div>
-            <div>
+              <div>
               <label
                 htmlFor="reviewText"
                 className="label block text-base font-medium"
@@ -186,8 +185,6 @@ const PropertyDetails = () => {
             </button>
           </form>
         </div>
-      </div>
-      </div>
       <div className="flex justify-center items-center mb-5 mt-5">
         <Link
           to="/all-properties"
@@ -198,6 +195,8 @@ const PropertyDetails = () => {
       </div>
       <div className="border-b-2 border-solid border-b-gray-400 mb-5 ml-7 mr-7"></div>
       <Toaster></Toaster>
+    </div>
+    </div>
     </div>
   );
 };
