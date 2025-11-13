@@ -11,11 +11,12 @@ const defaultReviewValues = {
   rating: 0,
 };
 const PropertyDetails = () => {
-  const data = useLoaderData();
-  console.log(data)
+  const loaderData = useLoaderData();
+//   console.log(data)
+
   const navigate = useNavigate();
-  const { _id, propertyName, price, imageUrl } = data;
-  if (!data) {
+  const { _id, propertyName, price, imageUrl } = loaderData?.result || {};
+  if (!loaderData) {
     return <Loading></Loading>;
   }
   const {
@@ -44,7 +45,7 @@ const PropertyDetails = () => {
     toast.success("Review submitted");
     navigate(`/my-ratings`, { state: { reviewData: submissionPayload } });
   }
-
+ const data = loaderData?.result || {}
   return (
     <div>
       <div className="lg:flex grid grid-cols-1 gap-5 m-10  items-center  ">

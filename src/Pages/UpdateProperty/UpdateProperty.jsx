@@ -7,7 +7,7 @@ const UpdateProperty = () => {
     const {user} = use(AuthContext);
     const navigate = useNavigate()
      const data =useLoaderData()
-        console.log(data)
+        // console.log(data)
          const handleSubmit = (e) => {
             e.preventDefault()
             const formData={
@@ -30,13 +30,13 @@ const UpdateProperty = () => {
           })
           .then(res=>res.json())
           .then(data=> {
-           console.log(data)
+          //  console.log(data)
            toast.success("A property has been added successfully")
            e.target.reset()
            navigate(`/all-properties/${data._id}`)
           })
             .catch(err=>{
-                console.log(err)
+                // console.log(err)
              toast.error('Error') 
           })
         }
