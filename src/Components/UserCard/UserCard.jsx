@@ -17,7 +17,7 @@ const UserCard = ({property}) => {
   confirmButtonText: "Yes, delete it!"
 }).then((result) => {
   if (result.isConfirmed) {
-     fetch(`http://localhost:3000/allProperties/${_id}`,{
+     fetch(`http://localhost:3000/all-properties/${_id}`,{
             method:"DELETE",
             headers:{
                 "Content-type": "application/json",

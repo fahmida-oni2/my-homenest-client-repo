@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
          {
             path:'/all-properties',
             element:<AllProperties></AllProperties>,
-            loader:()=> fetch('http://localhost:3000/allProperties')
+            loader:()=> fetch('http://localhost:3000/all-properties')
 
         },
          {
@@ -54,14 +54,14 @@ export const router = createBrowserRouter([
            element: <PrivateRoutes>
             <PropertyDetails></PropertyDetails>
            </PrivateRoutes>,
-            loader:({params})=> fetch(`http://localhost:3000/allProperties/${params.id}`)
+            loader:({params})=> fetch(`http://localhost:3000/all-properties/${params.id}`)
         },
          {
             path:'/update-properties/:id',
            element: <PrivateRoutes>
            <UpdateProperty></UpdateProperty>
            </PrivateRoutes>,
-             loader:({params})=> fetch(`http://localhost:3000/allProperties/${params.id}`)
+             loader:({params})=> fetch(`http://localhost:3000/all-properties/${params.id}`)
         },
 
     ]

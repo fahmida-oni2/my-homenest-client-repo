@@ -16,8 +16,8 @@ const LatestCard = ({property}) => {
         <h2 className=" text-center">Category:{category}</h2>
          <h2 className=" text-center">{description}</h2>
 
-  <div className='flex justify-between'>
-    <p className=''>
+  <div className='flex'>
+    <p >
       {location}
     </p>
     <button  className='flex h-10 w-30 btn btn-outline gap-2 border-gray-200 text-orange-500 bg-base-300'>

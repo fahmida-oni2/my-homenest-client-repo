@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router';
 import Loading from '../../Components/Loading/Loading';
+import { Controller } from 'swiper/modules';
 
 const PropertyDetails = () => {
     const data =useLoaderData()
@@ -47,6 +48,7 @@ if (!data) {
               </div>
             <div className='border-b-2 border-solid border-b-gray-400 mb-5 ml-7 mr-7'>
             </div>
+
         </div>
     );
 };
