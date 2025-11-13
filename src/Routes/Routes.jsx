@@ -28,8 +28,7 @@ export const router = createBrowserRouter([
          {
             path:'/all-properties',
             element:<AllProperties></AllProperties>,
-            loader:()=> fetch('http://localhost:3000/all-properties')
-
+            loader:()=> fetch('https://real-estate-api-server.vercel.app/all-properties')
         },
          {
             path:'/add-properties',
@@ -54,14 +53,14 @@ export const router = createBrowserRouter([
            element: <PrivateRoutes>
             <PropertyDetails></PropertyDetails>
            </PrivateRoutes>,
-            loader:({params})=> fetch(`http://localhost:3000/all-properties/${params.id}`)
+            loader:({params})=> fetch(`https://real-estate-api-server.vercel.app/all-properties/${params.id}`)
         },
          {
             path:'/update-properties/:id',
            element: <PrivateRoutes>
            <UpdateProperty></UpdateProperty>
            </PrivateRoutes>,
-             loader:({params})=> fetch(`http://localhost:3000/all-properties/${params.id}`)
+             loader:({params})=> fetch(`https://real-estate-api-server.vercel.app/all-properties/${params.id}`)
         },
 
     ]

@@ -7,7 +7,7 @@ import { Link } from "react-router";
 import LatestProperty from "../../Components/LatestProperty/LatestProperty";
 
 const Home = () => {
-  const latestPropertyPromise = fetch('http://localhost:3000/latest-properties')
+  const latestPropertyPromise = fetch('https://real-estate-api-server.vercel.app/latest-properties')
     .then(res => res.json());
   return (
     <div>

@@ -1,0 +1,167 @@
+[
+  {
+    "propertyName": "Luxury Balcony Condo",
+    "description": "High-floor luxury condominium with clean architectural lines and priva…",
+    "price": "$1,450,000",
+    "location": "Seattle, WA",
+    "category": "Condominium",
+    "imageUrl": "hhttps://i.ibb.co.com/7ts3bRJM/pexels-jovydas-2462015.jpg",
+    "postedDate": "2025-11-08",
+    "postedByEmail": "premiumestates@example.com",
+    "postedByName": "David Lee"
+  },
+  {
+    "propertyName": "Modern Apartment Hallway Unit",
+    "description": "Sleek and secure interior unit entrance in a contemporary multi-family…",
+    "price": "$3,200/month (Rent)",
+    "location": "Miami, FL",
+    "category": "Apartment/Rental",
+    "imageUrl": "https://i.ibb.co.com/05Bv8Cd/pexels-alfinauzikri-2968141.jpg",
+    "postedDate": "2025-10-28",
+    "postedByEmail": "urbanliving@example.com",
+    "postedByName": "Michael Cruz"
+  },
+  {
+    "propertyName": "Historic 'Painted Ladies' Row House",
+    "description": "A beautifully preserved Victorian row house, featuring classic architecture",
+    "price": "$1,950,000",
+    "location": "San Francisco, CA",
+    "category": "Row House/Historic",
+    "imageUrl": "https://i.ibb.co.com/QF9JVZ7T/pexels-jessica-bryant-592135-1370704.jpg",
+    "postedDate": "2025-11-02",
+    "postedByEmail": "victorianhomes@example.com",
+    "postedByName": "Emily Carter"
+  },
+  {
+    "propertyName": "Executive Studio Flat",
+    "description": "A modern studio flat with a compact, stylish kitchen and a clean, effi…",
+    "price": "$2,100/month (Rent)",
+    "location": "Wilmington, DE",
+    "category": "Studio/Rental",
+    "imageUrl": "https://i.ibb.co.com/v635j0Cb/pexels-fotoaibe-1643384.jpg",
+    "postedDate": "2025-11-03",
+    "postedByEmail": "rentalsbydover@example.com",
+    "postedByName": "Daniel Kim"
+  },
+  {
+    "propertyName": "Mid-Century Modern Duplex",
+    "description": "One unit in a newly built duplex, featuring expansive glass facades, c…",
+    "price": "$1,100,000",
+    "location": "New Castle, DE",
+    "category": "Duplex/Multi-Family",
+    "imageUrl": "https://i.ibb.co.com/kV4xFHtk/3d-electric-car-building.jpg",
+    "postedDate": "2025-10-30",
+    "postedByEmail": "investproperties@example.com",
+    "postedByName": "Alex Green"
+  },
+  {
+    "propertyName": "Sustainable Residential Complex",
+    "description": "A modern, multi-story residential building featuring large windows, en…",
+    "price": "$980,000 (Per Unit)",
+    "location": "Boulder, CO",
+    "category": "Multi-Family/New Construction",
+    "imageUrl": "https://i.ibb.co.com/kV4xFHtk/3d-electric-car-building.jpg",
+    "postedDate": "2025-11-05",
+    "postedByEmail": "ecobuiltprop@example.com",
+    "postedByName": "Alex Green"
+  },
+  {
+    "propertyName": "Traditional White Kitchen",
+    "description": "Bright and airy kitchen renovation featuring classic white shaker cabi…",
+    "price": "$550,000",
+    "location": "Portland, OR",
+    "category": "Townhouse",
+    "imageUrl": "https://i.ibb.co.com/7d2q4XVF/pexels-falling4utah-2724748-1.jpg",
+    "postedDate": "2025-11-06",
+    "postedByEmail": "familyliving@example.com",
+    "postedByName": "Tom Davies"
+  },
+  {
+    "propertyName": "Beachside Bungalow Retreat",
+    "description": "A cozy bungalow with lush, green surroundings and easy access to the w…",
+    "price": "$680,000",
+    "location": "Lewes, DE",
+    "category": "Bungalow/Vacation",
+    "imageUrl": "https://i.ibb.co.com/Ng1RrrY0/panoramic-shot-coastal-town-blue-skies.jpg",
+    "postedDate": "2025-10-18",
+    "postedByEmail": "seasidegetaways@example.com",
+    "postedByName": "Sarah Jenkins"
+  },
+  {
+    "propertyName": "Modern Open-Concept Kitchen/Living",
+    "description": "Expansive modern kitchen featuring a large central island, clean white…",
+    "price": "$650,000",
+    "location": "Denver, CO",
+    "category": "Single-Family Home",
+    "imageUrl": "https://i.ibb.co.com/WNWfN9wS/pexels-saviesa-home-1098995-2089698.jpg",
+    "postedDate": "2025-10-20",
+    "postedByEmail": "luxuryinteriors@example.com",
+    "postedByName": "Robert Evans"
+  },
+  {
+    "propertyName": "Gated Community Residence",
+    "description": "A large, luxury home located within a planned community, featuring a s…",
+    "price": "$890,000",
+    "location": "Milford, DE",
+    "category": "Single-Family Home/Luxury",
+    "imageUrl": "https://i.ibb.co.com/7d2q4XVF/pexels-falling4utah-2724748-1.jpg",
+    "postedDate": "2025-11-10",
+    "postedByEmail": "premiumrealestate@example.com",
+    "postedByName": "David Lee"
+  },
+  {
+    "propertyName": "Compact Designer Kitchenette",
+    "description": "Newly renovated, space-efficient kitchenette with integrated appliance…",
+    "price": "$450,000",
+    "location": "Newark, NJ",
+    "category": "Studio/Small Condo",
+    "imageUrl": "https://i.ibb.co.com/v635j0Cb/pexels-fotoaibe-1643384.jpg",
+    "postedDate": "2025-10-15",
+    "postedByEmail": "firsthomefinds@example.com",
+    "postedByName": "Jessica Chen"
+  },
+  {
+    "propertyName": "High-Density Urban Apartment Tower",
+    "description": "Unit in a towering modern residential complex situated in a vibrant, h…",
+    "price": "$850,000",
+    "location": "Singapore",
+    "category": "High-Rise Apartment",
+    "imageUrl": "https://i.ibb.co.com/99pRvbfJ/pexels-falling4utah-2724748.jpg",
+    "postedDate": "2025-11-09",
+    "postedByEmail": "globalrealty@example.com",
+    "postedByName": "Chai Lee"
+  },
+  {
+    "propertyName": "Victorian Townhome on The Row",
+    "description": "An end unit in a classic Victorian row, offering original detailing, h…",
+    "price": "$1,600,000",
+    "location": "Boston, MA",
+    "category": "Townhouse/Historic",
+    "imageUrl": "https://i.ibb.co.com/v635j0Cb/pexels-fotoaibe-1643384.jpg",
+    "postedDate": "2025-11-07",
+    "postedByEmail": "historiclistings@example.com",
+    "postedByName": "Emily Carter"
+  },
+  {
+    "propertyName": "Suburban Development Home",
+    "description": "Aerial view of a planned suburban neighborhood featuring single-family…",
+    "price": "$480,000",
+    "location": "Smyrna, DE",
+    "category": "Single-Family Home",
+    "imageUrl": "https://i.ibb.co.com/xqbyf0Pz/pexels-jessica-bryant-592135-1370704-1.jpg",
+    "postedDate": "2025-10-25",
+    "postedByEmail": "suburbanhomes@example.com",
+    "postedByName": "Laura Wilson"
+  },
+  {
+    "propertyName": "Duplex RiverView Home",
+    "description": "A beautiful place with riverview  and large rooftop",
+    "price": "70000",
+    "location": "Australia",
+    "category": "Commercial",
+    "imageUrl": "https://i.ibb.co.com/7d2q4XVF/pexels-falling4utah-2724748-1.jpg",
+    "postedDate": "2025-11-13T11:06:40.883Z",
+    "postedByEmail": "onifahmida@gmail.com",
+    "postedByName": "Fahmida Rahman"
+  }
+]

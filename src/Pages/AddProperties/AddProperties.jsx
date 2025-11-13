@@ -16,7 +16,7 @@ const AddProperties = () => {
                 postedByEmail:e.target.email.value,
                 postedByName:e.target.UserName.value
             }
-          fetch('http://localhost:3000/all-properties',{
+          fetch('https://real-estate-api-server.vercel.app/all-properties',{
             method:"POST",
             headers:{
                 "Content-type": "application/json",

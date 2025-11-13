@@ -11,8 +11,8 @@ const defaultReviewValues = {
   rating: 0,
 };
 const PropertyDetails = () => {
-  const { user } = use(AuthContext);
   const data = useLoaderData();
+  console.log(data)
   const navigate = useNavigate();
   const { _id, propertyName, price, imageUrl } = data;
   if (!data) {
@@ -50,7 +50,7 @@ const PropertyDetails = () => {
       <div className="lg:flex grid grid-cols-1 gap-5 m-10  items-center  ">
         <div className=" mr-10">
           <img
-            className="lg:w-250 lg:h-150 md:w-[200px] w-[250px] mx-auto lg:object-cover shadow-xl  border-gray-500   "
+            className="lg:w-150 lg:h-100 md:w-[200px] w-[250px] mx-auto lg:object-cover shadow-xl  border-gray-500   "
             src={data.imageUrl}
             alt=""
           />
@@ -185,6 +185,8 @@ const PropertyDetails = () => {
             </button>
           </form>
         </div>
+        </div>
+    </div>
       <div className="flex justify-center items-center mb-5 mt-5">
         <Link
           to="/all-properties"
@@ -195,8 +197,7 @@ const PropertyDetails = () => {
       </div>
       <div className="border-b-2 border-solid border-b-gray-400 mb-5 ml-7 mr-7"></div>
       <Toaster></Toaster>
-    </div>
-    </div>
+    
     </div>
   );
 };

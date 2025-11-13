@@ -82,7 +82,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex="0"
-            className="menu menu-sm dropdown-content bg-white  rounded-box z-10 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-white text-black  rounded-box z-10 mt-3 w-52 p-2 shadow"
           >
             {links}
           </ul>
@@ -110,7 +110,7 @@ const Navbar = () => {
             <img
               onClick={handleDropdown}
               src={`${user.photoURL}`} 
-              className="h-12 w-12 rounded-full hover:scale-105 transition ease-in-out cursor-pointer mt-10 lg:mt-0 lg:mr-5"
+              className="h-12 w-12  ml-20 lg:ml-0  rounded-full hover:scale-105 transition ease-in-out cursor-pointer mt-10 lg:mt-0 lg:mr-5"
               alt='User'
             />
 
@@ -127,7 +127,7 @@ const Navbar = () => {
                   <div className="">
                     <button
                     onClick={handleLogOut}
-                    className=" px-4 py-2 w-full  text-sm font-bold btn  btn-primary bg-gradient-to-r from-[#632EE3] to-[#9F62F2] "
+                    className=" px-4 py-2 w-full text-sm font-bold btn  btn-primary bg-gradient-to-r from-[#632EE3] to-[#9F62F2] "
                   >
                     Logout
                   </button>
