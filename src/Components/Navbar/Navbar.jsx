@@ -107,7 +107,7 @@ const Navbar = () => {
                   <div className="">
                     <button
                     onClick={handleLogOut}
-                    className=" px-4 py-2 w-full  text-sm font-bold btn btn-primary hover:bg-indigo-300"
+                    className=" px-4 py-2 w-full  text-sm font-bold btn  btn-primary bg-gradient-to-r from-[#632EE3] to-[#9F62F2] "
                   >
                     Logout
                   </button>
@@ -120,13 +120,13 @@ const Navbar = () => {
           <div className="navbar-end flex flex-col lg:flex-row lg:mt-0 ml-20 gap-2 ">
             <Link
               to="/auth/login"
-              className="btn btn-primary hover:bg-indigo-300"
+              className="btn btn-primary bg-gradient-to-r from-[#632EE3] to-[#9F62F2]"
             >
               Login
             </Link>
             <Link
               to="/auth/register"
-              className="btn btn-primary w-18 lg:w-22 hover:bg-indigo-300"
+              className="btn btn-primary w-18 lg:w-22 bg-gradient-to-r from-[#632EE3] to-[#9F62F2] "
             >
               Sign Up
             </Link>

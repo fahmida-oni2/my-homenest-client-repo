@@ -20,12 +20,21 @@ const MyProperties = () => {
     }
     return (
         <div>
-            <div  className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                    {
-                    properties.map(property => (
+            <h1 className='text-center font-bold text-3xl mt-5'>Your Properties</h1>
+            <div  className=''>
+                    {properties.length === 0 ? (
+                <p>No properties found for your account.</p>
+            ) : (
+                <div className='grid grid-cols-1  lg:grid-cols-3'>
+                    {/* The mapping remains the same */}
+                    {properties.map(property => (
                         <UserCard key={property._id} property={property}></UserCard>
                     ))}
                 </div>
+            )}
+                </div>
+            
+
         </div>
     );
 };

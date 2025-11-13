@@ -18,14 +18,14 @@ const Card = ({property}) => {
          <h2 className=" text-center">Posted by: {postedByName}</h2>
 
    <div className='flex justify-between'>
-    <p className=''>
+    <button className='flex h-10 w-30 btn btn-outline gap-2 border-gray-200 text-orange-500 bg-base-300'>
       {location}
-    </p>
+    </button>
     <button  className='flex h-10 w-30 btn btn-outline gap-2 border-gray-200 text-orange-500 bg-base-300'>
         {price}
     </button>
    </div>
-   <Link to={`/all-properties/${_id}`}  className='flex h-10 w-full btn btn-outline gap-2 border-gray-200 text-white bg-blue-800'>
+   <Link to={`/all-properties/${_id}`}  className='flex h-10 w-full btn btn-outline gap-2 border-gray-200 text-white bg-gradient-to-r from-[#632EE3] to-[#9F62F2]'>
         View Details
     </Link>
   </div>

@@ -60,7 +60,7 @@ const showNoResult = filteredProperty.length === 0 && search.trim().length > 0;
           <Loading></Loading>
         </div>
       ) : showNoResult ? (
-                <div className='flex items-center justify-center p-20'>
+                <div >
                     <ErrorProperty searchTerm={search}></ErrorProperty>
                 </div>
             ) : (
