@@ -1,7 +1,6 @@
 import React from 'react';
-import { FaDollarSign, FaStar } from 'react-icons/fa';
-import { FaMoneyBill } from 'react-icons/fa6';
 import { Link } from 'react-router';
+
 
 const Card = ({property}) => {
     const {propertyName,postedByName,price,category,location,imageUrl,_id}=property
@@ -26,7 +25,7 @@ const Card = ({property}) => {
         {price}
     </button>
    </div>
-   <Link to={`/all-properties/$(_id)`}  className='flex h-10 w-full btn btn-outline gap-2 border-gray-200 text-white bg-blue-800'>
+   <Link to={`/all-properties/${_id}`}  className='flex h-10 w-full btn btn-outline gap-2 border-gray-200 text-white bg-blue-800'>
         View Details
     </Link>
   </div>

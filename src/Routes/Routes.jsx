@@ -50,16 +50,18 @@ export const router = createBrowserRouter([
             </PrivateRoutes>
         },
           {
-            path:'/all-properties/:_id',
+            path:'/all-properties/:id',
            element: <PrivateRoutes>
             <PropertyDetails></PropertyDetails>
-           </PrivateRoutes>
+           </PrivateRoutes>,
+            loader:({params})=> fetch(`http://localhost:3000/allProperties/${params.id}`)
         },
          {
-            path:'/update-properties/:_id',
+            path:'/update-properties/:id',
            element: <PrivateRoutes>
            <UpdateProperty></UpdateProperty>
-           </PrivateRoutes>
+           </PrivateRoutes>,
+             loader:({params})=> fetch(`http://localhost:3000/allProperties/${params.id}`)
         },
 
     ]

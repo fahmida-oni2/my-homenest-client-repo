@@ -1,8 +1,48 @@
 import React from 'react';
-import { Link } from 'react-router';
+import toast, { Toaster } from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const UserCard = ({property}) => {
+    const navigate = useNavigate()
     const {propertyName,postedByName,postedDate,price,category,location,imageUrl,_id}=property
+    const handleDelete = ()=>{
+           Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+     fetch(`http://localhost:3000/allProperties/${_id}`,{
+            method:"DELETE",
+            headers:{
+                "Content-type": "application/json",
+            },
+          })
+          .then(res=>res.json())
+          .then(data=> {
+           console.log(data)
+           navigate(`/all-properties`)
+           Swal.fire({
+      title: "Deleted!",
+      text: "Your file has been deleted.",
+      icon: "success"
+    });
+
+          })
+            .catch(err=>{
+                console.log(err)
+             toast.error('Error') 
+          })
+
+    
+  }
+});
+    }
     return (
   <div className="card bg-base-100 border-gray-300 shadow-xl  hover:scale-105 transition ease-in-out m-5 ">
   <figure className='h-48 overflow-hidden'>
@@ -25,18 +65,20 @@ const UserCard = ({property}) => {
     </button>
    </div>
    <div className='flex justify-between'>
-     <Link to={`/update-properties/$(_id)`}  className='flex h-10 rounded-full btn btn-outline gap-2 border-gray-200 text-white bg-blue-800'>
+     <Link to={`/update-properties/${_id}`}  className='flex h-10 rounded-full btn btn-outline gap-2 border-gray-200 text-white bg-blue-800'>
         Update
     </Link>
-     <Link to={`/all-properties/$(_id)`}  className='flex h-10 rounded-full  btn btn-outline gap-2 border-gray-200 text-white bg-blue-800'>
+     <button onClick={handleDelete}  className='flex h-10 rounded-full  btn btn-outline gap-2 border-gray-200 text-white bg-blue-800'>
         Delete
-    </Link>
+    </button>
    </div>
-   <Link to={`/all-properties/$(_id)`}  className='flex h-10 w-full btn btn-outline gap-2 border-gray-200 text-white bg-blue-800'>
+   <Link to={`/all-properties/${_id}`}  className='flex h-10 w-full btn btn-outline gap-2 border-gray-200 text-white bg-blue-800'>
         View Details
     </Link>
   </div>
+  <Toaster></Toaster>
 </div>
+
     );
 };
 
