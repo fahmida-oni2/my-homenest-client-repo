@@ -1,9 +1,11 @@
-My client website is:[HomeNest](https://homenest-real-estate.netlify.app/) 
-
-
-
 # HomeNest
 A dynamic real estate application that provides real-time property data and verified listings. The platform is engineered with advanced search algorithms and filtering mechanisms to simplify the discovery of expected and reliable properties, ensuring an efficient, data-driven user experience
+
+## Technologies Used
+- **Express.js**: v4.17.1
+- **React.js**: v17.0.2
+- **MongoDB**: v4.4
+
 
 
 ## Features
@@ -12,18 +14,41 @@ A dynamic real estate application that provides real-time property data and veri
 - Live previews
 - Fullscreen mode
 - Cross platform
+- Features include verified listing visuals and neighborhood insights for trust
+- Uses Firebase authentication for secure access control
+- Supports full CRUD operations for data management
+- Offers a responsive design for seamless multi-device browsing
 
-**Moreover:** 
-#### 1. Trust & Verified Listings
-* **High-Quality Visuals:** Features verified, high-resolution images, detailed floor plans, and virtual (360°) tours.
-* **Transparency:** Dedicated agent/seller profiles with reviews, plus detailed neighborhood insight (schools, safety, market trends).
 
-### 2. User Tools & Accessibility
-* **Responsive Design:** Seamless and dynamic browsing experience across all devices (desktop, tablet, mobile).
+## Dependencies
+    "@tailwindcss/vite": "^4.1.17",
+    "animate.css": "^4.1.1",
+    "firebase": "^12.5.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-hook-form": "^7.66.0",
+    "react-hot-toast": "^2.6.0",
+    "react-icons": "^5.5.0",
+    "react-router": "^7.9.5",
+    "react-toastify": "^11.0.5",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.26.3",
+    "swiper": "^12.0.3",
+    "tailwindcss": "^4.1.17"
+  **devDependencies:** 
+  <br>
+    "@eslint/js": "^9.36.0",
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.4",
+    "daisyui": "^5.4.7",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "globals": "^16.4.0",
+    "vite": "^7.1.7"
 
-### 3.Secure Data Management & Access Control
-* **User Authentication & Authorization:** Implemented using firebase authentication for secure, personalized access control.
-* **CRUD Operations:** Enables full data management (Create, Read, Update, Delete) for all application items (e.g., property listings).
+
 ## Installation
 
 Install my-project with npm
@@ -60,8 +85,12 @@ Install my-project with npm
     PORT=3000
     MONGO_URI=your-mongodb-uri
     ```
-
-
-
 ## Deployment
 1. Access the live application at `http://localhost:3000`. by proper command
+
+## Live Link
+My client website is:[HomeNest](https://homenest-real-estate.netlify.app/) 
+<br>
+My server website: https://real-estate-api-server.vercel.app/
+
+
