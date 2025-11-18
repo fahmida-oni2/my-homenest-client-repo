@@ -2,9 +2,9 @@
 A dynamic real estate application that provides real-time property data and verified listings. The platform is engineered with advanced search algorithms and filtering mechanisms to simplify the discovery of expected and reliable properties, ensuring an efficient, data-driven user experience
 
 ## Technologies Used
-- **Express.js**: v4.17.1
-- **React.js**: v17.0.2
-- **MongoDB**: v4.4
+- **Express.js**
+- **React.js**
+- **MongoDB**
 
 
 
