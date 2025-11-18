@@ -6,7 +6,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 const UpdateProperty = () => {
     const {user} = use(AuthContext);
     const navigate = useNavigate()
-     const data =useLoaderData()
+      const loaderData = useLoaderData();
         // console.log(data)
          const handleSubmit = (e) => {
             e.preventDefault()
@@ -40,6 +40,7 @@ const UpdateProperty = () => {
              toast.error('Error') 
           })
         }
+         const data = loaderData?.result || {}
     return (
            <>
       <div className="max-w-xl mx-auto my-10 p-6 bg-white rounded-xl shadow-2xl border border-gray-100">
@@ -56,7 +57,7 @@ const UpdateProperty = () => {
             name="name"
             defaultValue={data.propertyName}
             required
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1 block w-full text-black px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           />
         </div>
 
@@ -68,7 +69,7 @@ const UpdateProperty = () => {
             defaultValue={data.description}
             required
             rows="4"
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm resize-y"
+            className="mt-1 block w-full text-black px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm resize-y"
           />
         </div>
 
@@ -79,7 +80,7 @@ const UpdateProperty = () => {
           defaultValue={data.category}
             name="category"
             required
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1 block w-full px-3 text-black py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           >
             <option value="" >
              Select Category
@@ -110,7 +111,7 @@ const UpdateProperty = () => {
             min="0"
             step="1"
             placeholder="e.g., 550000"
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1 block w-full text-black px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           />
         </div>
 
@@ -122,7 +123,7 @@ const UpdateProperty = () => {
             name="location"
             defaultValue={data.location}
             required
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1 block w-full text-black px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           />
         </div>
 
@@ -134,7 +135,7 @@ const UpdateProperty = () => {
             name="imageLink"
             defaultValue={data.imageUrl}
             placeholder="e.g., https://example.com/property.jpg"
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1 block w-full text-black px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           />
         </div>
 
@@ -149,7 +150,7 @@ const UpdateProperty = () => {
                 value={user.displayName}
                 name="UserName"
                 readOnly
-                className="mt-1 block w-full px-3 py-2 border border-gray-200 rounded-md bg-gray-50 text-gray-600 sm:text-sm cursor-not-allowed"
+                className="mt-1 block w-full text-black px-3 py-2 border border-gray-200 rounded-md bg-gray-50 text-gray-600 sm:text-sm cursor-not-allowed"
               />
             </div>
 
@@ -161,7 +162,7 @@ const UpdateProperty = () => {
                 name="email"
                 value={user.email}
                 readOnly
-                className="mt-1 block w-full px-3 py-2 border border-gray-200 rounded-md bg-gray-50 text-gray-600 sm:text-sm cursor-not-allowed"
+                className="mt-1 block w-full text-black px-3 py-2 border border-gray-200 rounded-md bg-gray-50 text-gray-600 sm:text-sm cursor-not-allowed"
               />
             </div>
         </div>
