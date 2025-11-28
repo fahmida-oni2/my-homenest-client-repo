@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Loading from "../../Components/Loading/Loading";
 import { Link } from "react-router";
+import toast, { Toaster } from "react-hot-toast";
 
 const MyRatings = () => {
   const [allReviews, setAllReviews] = useState([]);
@@ -13,7 +14,7 @@ const MyRatings = () => {
         );
         setAllReviews(storedReviews);
       } catch (error) {
-        setAllReviews([]); 
+        setAllReviews([]);
       } finally {
         setIsLoading(false);
       }
@@ -21,6 +22,27 @@ const MyRatings = () => {
 
     loadReviews();
   }, []);
+
+  // handle delete button
+  const handleDeleteReview = (indexToDelete) => {
+    const currentDisplayedReviews = allReviews.slice();
+    const updatedDisplayedReviews = currentDisplayedReviews.filter(
+      (_, index) => {
+        return index !== indexToDelete;
+      }
+    );
+    const reviewsToSave = updatedDisplayedReviews.slice().reverse();
+
+    try {
+      localStorage.setItem("reviews", JSON.stringify(reviewsToSave));
+      setAllReviews(updatedDisplayedReviews);
+
+      toast.success("Review successfully deleted!");
+    } catch (error) {
+      toast.error("Failed to delete review.");
+    }
+  };
+
   if (isLoading) {
     return <Loading></Loading>;
   }
@@ -28,9 +50,7 @@ const MyRatings = () => {
   if (allReviews.length === 0) {
     return (
       <div className="text-center p-10">
-        <h2 className="text-2xl font-bold text-gray-700">
-          No Reviews Saved Locally
-        </h2>
+        <h2 className="text-2xl font-bold ">No Reviews Saved Locally</h2>
         <p>Submit a review to see it here!</p>
       </div>
     );
@@ -50,7 +70,7 @@ const MyRatings = () => {
             {review.imageUrl && (
               <img
                 src={review.imageUrl}
-                alt=''
+                alt=""
                 className="w-60 h-50 rounded-md mb-3"
               />
             )}
@@ -76,10 +96,18 @@ const MyRatings = () => {
                 {new Date(review.submissionDate).toLocaleDateString()}
               </p>
             </div>
+            <div className="flex justify-end items-end p-2">
+              <button
+                onClick={() => handleDeleteReview(index)}
+                className="btn bg-orange-500 rounded-2xl text-white hover:bg-[#00b97a]"
+              >
+                Delete
+              </button>
+            </div>
           </div>
         ))}
       </div>
-       <div className="flex justify-center items-center mb-5 mt-5">
+      <div className="flex justify-center items-center mb-5 mt-5">
         <Link
           to="/all-properties"
           className="btn rounded-xl text-white bg-gradient-to-r from-[#632EE3] to-[#9F62F2] w-50"
@@ -87,6 +115,7 @@ const MyRatings = () => {
           Go Back
         </Link>
       </div>
+      <Toaster></Toaster>
     </div>
   );
 };

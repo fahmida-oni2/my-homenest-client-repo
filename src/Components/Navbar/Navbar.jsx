@@ -7,18 +7,18 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [theme, setTheme] = useState(localStorage.getItem('theme') || "light")
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   useEffect(() => {
-    const html = document.querySelector('html')
-     html.setAttribute("data-theme", theme)
-     localStorage.setItem("theme", theme)
-  }, [theme])
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
-
+  // handle theme
   const handleTheme = (checked) => {
-    setTheme(checked ? "dark": "light")
-  }
+    setTheme(checked ? "dark" : "light");
+  };
   const handleLogOut = () => {
     signOutUser()
       .then((result) => {
@@ -91,15 +91,16 @@ const Navbar = () => {
         <Link to="/" className=" text-xl font-extrabold text-sky-800">
           HomeNest
         </Link>
-         <div className="flex justify-center items-center ml-2">
-                      <input
-           onChange={(e)=> handleTheme(e.target.checked)}
-           type="checkbox"
-           defaultChecked={localStorage.getItem('theme') === "dark"}
-           className="toggle"/>
-                    </div>
+        <div className="flex justify-center items-center ml-2">
+          <input
+            onChange={(e) => handleTheme(e.target.checked)}
+            type="checkbox"
+            defaultChecked={localStorage.getItem("theme") === "dark"}
+            className="toggle"
+          />
+        </div>
       </div>
-        
+
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
@@ -109,9 +110,9 @@ const Navbar = () => {
           <div className="relative">
             <img
               onClick={handleDropdown}
-              src={`${user.photoURL}`} 
+              src={`${user.photoURL}`}
               className="h-12 w-12  ml-20 lg:ml-0  rounded-full hover:scale-105 transition ease-in-out cursor-pointer mt-10 lg:mt-0 lg:mr-5"
-              alt='User'
+              alt="User"
             />
 
             {isDropdownOpen && (
@@ -123,14 +124,14 @@ const Navbar = () => {
                   <span className="block px-4 py-2 text-sm text-gray-700 font-semibold truncate">
                     {user.email}
                   </span>
-                 
+
                   <div className="">
                     <button
-                    onClick={handleLogOut}
-                    className=" px-4 py-2 w-full text-sm font-bold btn  btn-primary bg-gradient-to-r from-[#632EE3] to-[#9F62F2] "
-                  >
-                    Logout
-                  </button>
+                      onClick={handleLogOut}
+                      className=" px-4 py-2 w-full text-sm font-bold btn  btn-primary bg-gradient-to-r from-[#632EE3] to-[#9F62F2] "
+                    >
+                      Logout
+                    </button>
                   </div>
                 </div>
               </div>

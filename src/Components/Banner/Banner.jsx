@@ -37,7 +37,7 @@ const Banner = () => {
                   Welcome to HomeNest
                 </h1>
                 <p className=" text-2xl lg:text-3xl font-bold animate__animated animate__swing">
-                   A Real Estate Listing Portal 
+                  A Real Estate Listing Portal
                 </p>
               </div>
             </div>
@@ -58,7 +58,9 @@ const Banner = () => {
                   Find your dream home
                 </h2>
                 <p className="text-2xl lg:text-3xl">
-                 We are recognized for exceeding client expectations and delivering great results through dedication, ease of process, and extraordinary services to our worldwide clients.
+                  We are recognized for exceeding client expectations and
+                  delivering great results through dedication, ease of process,
+                  and extraordinary services to our worldwide clients.
                 </p>
               </div>
             </div>
@@ -80,8 +82,10 @@ const Banner = () => {
                   Search. Compare. Secure Your Next Space
                 </h2>
                 <p className="text-2xl lg:text-3xl">
-                 Discover a seamless way to explore verified listings tailored to your needs. <br />
-                  Make confident property decisions with a platform built for clarity, speed, and trust.
+                  Discover a seamless way to explore verified listings tailored
+                  to your needs. <br />
+                  Make confident property decisions with a platform built for
+                  clarity, speed, and trust.
                 </p>
               </div>
             </div>

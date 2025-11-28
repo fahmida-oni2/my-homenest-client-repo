@@ -1,14 +1,20 @@
-import React from 'react';
-import { FaStar } from 'react-icons/fa';
+import React from "react";
+import { FaStar } from "react-icons/fa";
 
-const RatingComponent = ({ value, onChange, onBlur, name, ratingCount = 5}) => {
-    const stars = Array(ratingCount).fill(0);
+const RatingComponent = ({
+  value,
+  onChange,
+  onBlur,
+  name,
+  ratingCount = 5,
+}) => {
+  const stars = Array(ratingCount).fill(0);
 
   const handleClick = (index) => {
-    onChange(index + 1); 
+    onChange(index + 1);
   };
-    return (
-        <div className="flex justify-center items-center gap-1" onBlur={onBlur}>
+  return (
+    <div className="flex justify-center items-center gap-1" onBlur={onBlur}>
       {stars.map((_, index) => {
         const ratingValue = index + 1;
         return (
