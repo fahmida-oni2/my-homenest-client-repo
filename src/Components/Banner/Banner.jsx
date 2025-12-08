@@ -24,7 +24,7 @@ const Banner = () => {
       >
         <SwiperSlide>
           <div
-            className="hero min-h-screen"
+            className="hero h-100"
             style={{
               backgroundImage:
                 "url(https://i.ibb.co.com/LG30919/pexels-energepic-com-27411-313691.jpg)",
@@ -33,7 +33,7 @@ const Banner = () => {
             <div className="hero-overlay"></div>
             <div className=" hero-content text-neutral-content flex flex-col lg:flex-row justify-center items-center p-4 ">
               <div className="max-w-md  ">
-                <h1 className="mb-5 text-5xl font-bold animate__animated animate__backInUp">
+                <h1 className="mb-5 text-4xl font-bold animate__animated animate__backInUp">
                   Welcome to HomeNest
                 </h1>
                 <p className=" text-2xl lg:text-3xl font-bold animate__animated animate__swing">
@@ -45,7 +45,7 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="hero min-h-screen"
+            className="hero h-100"
             style={{
               backgroundImage:
                 "url(https://i.ibb.co.com/QF9JVZ7T/pexels-jessica-bryant-592135-1370704.jpg)",
@@ -54,7 +54,7 @@ const Banner = () => {
             <div className="hero-overlay"></div>
             <div className="hero-content text-neutral-content flex flex-col lg:flex-row justify-center items-center p-4">
               <div className="space-y-6 text-center lg:text-left lg:mr-10">
-                <h2 className="text-5xl lg:text-6xl font-bold">
+                <h2 className="text-4xl lg:text-6xl font-bold">
                   Find your dream home
                 </h2>
                 <p className="text-2xl lg:text-3xl">
@@ -69,7 +69,7 @@ const Banner = () => {
 
         <SwiperSlide>
           <div
-            className="hero min-h-screen "
+            className="hero h-100 "
             style={{
               backgroundImage:
                 "url(https://i.ibb.co.com/99pRvbfJ/pexels-falling4utah-2724748.jpg)",
@@ -78,7 +78,7 @@ const Banner = () => {
             <div className="hero-overlay"></div>
             <div className="hero-content text-neutral-content flex flex-col lg:flex-row justify-center items-center p-4">
               <div className="space-y-6 text-center lg:text-left lg:mr-10">
-                <h2 className="text-5xl lg:text-6xl font-bold">
+                <h2 className="text-4xl lg:text-6xl font-bold">
                   Search. Compare. Secure Your Next Space
                 </h2>
                 <p className="text-2xl lg:text-3xl">
