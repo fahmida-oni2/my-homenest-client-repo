@@ -76,7 +76,7 @@ Install my-project with npm
 1. Access the live application at `http://localhost:3000`. by proper command
 
 ## Live Link
-My client website is:[HomeNest](https://homenest-real-estate.netlify.app/) 
+My client website is:https://my-homenest-app.vercel.app/
 <br>
 My server website: https://real-estate-api-server.vercel.app/
 
