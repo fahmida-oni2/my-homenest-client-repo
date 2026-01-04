@@ -6,6 +6,8 @@ import { FaFacebook, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router";
 import LatestProperty from "../../Components/LatestProperty/LatestProperty";
 import Statistics from "../../Components/Statistics/Statistics";
+import Testimonials from "../../Components/Testimonials/Testimonials";
+import Logo from "../../Components/Logo/Logo";
 
 const Home = () => {
   const latestPropertyPromise = fetch(
@@ -34,12 +36,18 @@ const Home = () => {
       </section>
 
       <section className=" py-16 bg-base-100">
+        <Logo></Logo>
+      </section>
+      <section className=" py-16 bg-base-100">
         <ChoosingSec></ChoosingSec>
       </section>
-  <section className=" py-16 bg-base-100">
+      <section className=" py-16 bg-base-100">
         <Statistics></Statistics>
       </section>
 
+      <section className=" py-16 bg-base-100">
+        <Testimonials></Testimonials>
+      </section>
       {/* Agent */}
       <section className=" py-16 bg-base-200">
         <div className="ml-5 mr-5 mx-auto text-center px-4">
@@ -47,17 +55,41 @@ const Home = () => {
             Meet Our <span className="text-primary">Expert Agents</span>
           </h2>
           <p className="text-base-content/70 mb-12 animate__animated animate__fadeInUp">
-           Connect with our verified professionals to get the best market insights.
+            Connect with our verified professionals to get the best market
+            insights.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { name: "Mike Rutter", id: "987654321", listings: 4, img: "https://i.ibb.co.com/DHtBCZ6F/image.png" },
-              { name: "Janet Richmond", id: "987654322", listings: 2, img: "https://i.ibb.co.com/gLg1bZx5/person1.jpg" },
-              { name: "Maria Barlo", id: "987654323", listings: 5, img: "https://i.ibb.co.com/7JGxC0QY/person2jpg.jpg" },
-              { name: "Stephen Cheves", id: "987654325", listings: 3, img: "https://i.ibb.co.com/W4pVzyd5/person3.jpg" }
+              {
+                name: "Mike Rutter",
+                id: "987654321",
+                listings: 4,
+                img: "https://i.ibb.co.com/DHtBCZ6F/image.png",
+              },
+              {
+                name: "Janet Richmond",
+                id: "987654322",
+                listings: 2,
+                img: "https://i.ibb.co.com/gLg1bZx5/person1.jpg",
+              },
+              {
+                name: "Maria Barlo",
+                id: "987654323",
+                listings: 5,
+                img: "https://i.ibb.co.com/7JGxC0QY/person2jpg.jpg",
+              },
+              {
+                name: "Stephen Cheves",
+                id: "987654325",
+                listings: 3,
+                img: "https://i.ibb.co.com/W4pVzyd5/person3.jpg",
+              },
             ].map((agent, index) => (
-              <div key={index} className="group flex flex-col items-center bg-base-100 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-base-300 animate__animated animate__fadeInUp">
+              <div
+                key={index}
+                className="group flex flex-col items-center bg-base-100 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-base-300 animate__animated animate__fadeInUp"
+              >
                 <div className="relative mb-4">
                   <img
                     src={agent.img}
@@ -68,23 +100,41 @@ const Home = () => {
                     {agent.listings} listings
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-secondary">{agent.name}</h3>
-                <p className="text-xs text-primary font-semibold mb-3">ID: {agent.id}</p>
+                <h3 className="text-xl font-bold text-secondary">
+                  {agent.name}
+                </h3>
+                <p className="text-xs text-primary font-semibold mb-3">
+                  ID: {agent.id}
+                </p>
                 <p className="text-base-content/60 text-sm leading-relaxed mb-6">
-                  Highly skilled professional with a strong reputation for excellence in the real estate market.
+                  Highly skilled professional with a strong reputation for
+                  excellence in the real estate market.
                 </p>
                 <div className="flex space-x-4">
-                  <Link to="#" className="text-base-content/40 hover:text-primary transition-colors text-xl"><FaFacebook /></Link>
-                  <Link to="#" className="text-base-content/40 hover:text-primary transition-colors text-xl"><FaXTwitter /></Link>
-                  <Link to="#" className="text-base-content/40 hover:text-primary transition-colors text-xl"><FaLinkedin /></Link>
+                  <Link
+                    to="#"
+                    className="text-base-content/40 hover:text-primary transition-colors text-xl"
+                  >
+                    <FaFacebook />
+                  </Link>
+                  <Link
+                    to="#"
+                    className="text-base-content/40 hover:text-primary transition-colors text-xl"
+                  >
+                    <FaXTwitter />
+                  </Link>
+                  <Link
+                    to="#"
+                    className="text-base-content/40 hover:text-primary transition-colors text-xl"
+                  >
+                    <FaLinkedin />
+                  </Link>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      
     </div>
   );
 };
