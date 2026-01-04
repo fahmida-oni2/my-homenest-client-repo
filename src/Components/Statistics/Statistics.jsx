@@ -45,7 +45,7 @@ const Statistics = () => {
 
       <div className="ml-5 mr-5 mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl  font-black mb-4 animate__animated animate__fadeInDown">
+          <h2 className="text-4xl lg:text-5xl text-secondary  font-black mb-4 animate__animated animate__fadeInDown">
             HomeNest <span className="text-primary">By The Numbers</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto animate__animated animate__fadeInUp">

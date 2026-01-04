@@ -18,6 +18,7 @@ import MyProfile from "../Pages/MyProfile/MyProfile";
 import About from "../Pages/About/About";
 import Contact from "../Pages/Contact/Contact";
 import Privacy from "../Pages/Privacy/Privacy";
+import Overview from "../Pages/Overview/Overview";
 
 export const router = createBrowserRouter([
   {
@@ -89,6 +90,10 @@ export const router = createBrowserRouter([
       {
         path: "profile",
         element: <MyProfile></MyProfile>,
+      },
+        {
+        path: "overview",
+        element:<Overview></Overview>,
       },
       {
         path: "add-properties",

@@ -1,11 +1,27 @@
-import React from "react";
-import { FaTicketAlt, FaUserAlt } from "react-icons/fa";
-import { Link, NavLink, Outlet } from "react-router";
+import React, { use } from "react";
+import { FaSearch, FaSignOutAlt, FaTicketAlt, FaUserAlt } from "react-icons/fa";
+import { Link, NavLink, Outlet, useNavigate } from "react-router";
 import { TbTransactionDollar } from "react-icons/tb";
 import { MdRateReview } from "react-icons/md";
 import logo from '../assets/real-estate-logo.jpg'
+import toast from "react-hot-toast";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const DashboardLayout = () => {
+  const { signOutUser } = use(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    signOutUser()
+      .then(() => {
+        toast.success("Signed out successfully");
+        navigate("/"); 
+      })
+      .catch((error) => {
+        toast.error("Logout failed.");
+        console.error(error);
+      });
+  };
   return (
     <div className="drawer lg:drawer-open min-h-screen bg-base-200">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -62,7 +78,12 @@ const DashboardLayout = () => {
               </Link>
             </li>
 
-
+           <li>
+              <NavLink to="/dashboard/overview" className={({isActive}) => isActive ? "active" : ""}>
+                <FaSearch className="text-lg" />
+                Overview
+              </NavLink>
+            </li>
 
             <li>
               <NavLink to="/dashboard/profile" className={({isActive}) => isActive ? "active" : ""}>
@@ -90,6 +111,17 @@ const DashboardLayout = () => {
                 <MdRateReview className="text-lg" />
                 My Ratings
               </NavLink>
+            </li>
+            <li>
+              <div className="pt-4 border-t border-base-300">
+            <button 
+              onClick={handleLogOut}
+              className="btn btn-error btn-outline w-full flex items-center justify-start gap-3 border-2 hover:text-white"
+            >
+              <FaSignOutAlt className="text-lg" />
+              Logout 
+            </button>
+          </div>
             </li>
           </ul>
 
