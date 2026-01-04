@@ -31,6 +31,8 @@ A dynamic real estate application that provides real-time property data and veri
     "react-icons": "^5.5.0",
     "react-router": "^7.9.5",
     "react-toastify": "^11.0.5",
+    "rechart": "^0.0.1",
+    "recharts": "^3.6.0",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.26.3",
     "swiper": "^12.0.3",
