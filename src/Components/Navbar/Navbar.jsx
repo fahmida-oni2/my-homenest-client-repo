@@ -7,7 +7,9 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "HomeNest"
+  );
 
   useEffect(() => {
     const html = document.querySelector("html");
@@ -17,7 +19,7 @@ const Navbar = () => {
 
   // handle theme
   const handleTheme = (checked) => {
-    setTheme(checked ? "dark" : "light");
+    setTheme(checked ? "dark" : "HomeNest");
   };
   const handleLogOut = () => {
     signOutUser()
@@ -25,7 +27,9 @@ const Navbar = () => {
         toast.success("SignOut successfully");
         setIsDropdownOpen(false);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        toast.error("Logout failed. Please try again.");
+      });
   };
   const handleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -42,25 +46,45 @@ const Navbar = () => {
           All Properties
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/add-properties" className="m-2">
-          Add Properties
+       <li>
+        <NavLink to="/about" className="m-2">
+          About
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/my-properties" className="m-2">
-          My Properties
+       <li>
+        <NavLink to="/contact" className="m-2">
+          Contact Us
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/my-ratings" className="m-2">
-          My Ratings
+       <li>
+        <NavLink to="/privacy" className="m-2">
+          Privacy Policy
         </NavLink>
+      </li>
+
+      {user && (
+        <>
+          <li>
+            <NavLink to="/dashboard" className="m-2">
+              Dashboard
+            </NavLink>
+          </li>
+        </>
+      )}
+      <li>
+        <div className="flex justify-start m-2">
+          <input
+            onChange={(e) => handleTheme(e.target.checked)}
+            type="checkbox"
+            checked={theme === "dark"}
+            className="toggle"
+          />
+        </div>
       </li>
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-sm flex justify-evenly">
+    <div className="navbar bg-base-100/80 backdrop-blur-md sticky top-0 z-50 shadow-sm px-4 lg:px-8">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -82,53 +106,51 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex="0"
-            className="menu menu-sm dropdown-content bg-white text-black  rounded-box z-10 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 text-base-content  rounded-box z-10 mt-3 w-52 p-2 shadow border border-base-300"
           >
             {links}
           </ul>
         </div>
-        <img src={logo} className="h-12 w-12 mr-3 " alt="" />
-        <Link to="/" className=" text-xl font-extrabold text-sky-800">
+        <img src={logo} className="h-10 w-10 mr-2 " alt="" />
+        <Link to="/" className=" text-xl font-extrabold text-secondary">
           HomeNest
         </Link>
-        <div className="flex justify-center items-center ml-2">
-          <input
-            onChange={(e) => handleTheme(e.target.checked)}
-            type="checkbox"
-            defaultChecked={localStorage.getItem("theme") === "dark"}
-            className="toggle"
-          />
-        </div>
       </div>
-
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
+        <ul className="menu menu-horizontal px-1 font-medium">{links}</ul>
       </div>
 
-      <div className="login-btn flex-col  sm:flex-row flex  justify-center items-center ">
+      <div className="navbar-end ">
         {user ? (
           <div className="relative">
             <img
               onClick={handleDropdown}
               src={`${user.photoURL}`}
-              className="h-12 w-12  ml-20 lg:ml-0  rounded-full hover:scale-105 transition ease-in-out cursor-pointer mt-10 lg:mt-0 lg:mr-5"
+              className="h-10 w-10  rounded-full border-2 border-primary hover:scale-105 transition  cursor-pointer "
               alt="User"
             />
 
             {isDropdownOpen && (
-              <div className="absolute right-0 mt-1 w-48 z-5 bg-white rounded-md shadow-lg  border border-gray-200">
-                <div className="py-1">
-                  <span className="block px-4 py-2 text-sm text-gray-700 font-semibold truncate">
+              <div className="absolute right-0 mt-1 w-48 z-5 bg-base-100 rounded-lg shadow-xl space-y-3  border border-base-300">
+                <div className="p-4 border-b border-base-200">
+                  <p className="text-sm font-bold text-secondary truncate">
                     {user.displayName}
-                  </span>
-                  <span className="block px-4 py-2 text-sm text-gray-700 font-semibold truncate">
+                  </p>
+                  <p className="text-xs text-base-content/70 truncate">
                     {user.email}
-                  </span>
+                  </p>
 
-                  <div className="">
+                  <div className="mt-2 flex flex-col gap-1">
+                    <Link
+                      to="/dashboard/profile"
+                      className="btn btn-success btn-outline btn-sm w-full"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                      Profile
+                    </Link>
                     <button
                       onClick={handleLogOut}
-                      className=" px-4 py-2 w-full text-sm font-bold btn  btn-primary bg-gradient-to-r from-[#632EE3] to-[#9F62F2] "
+                      className=" btn btn-error btn-outline btn-sm w-full "
                     >
                       Logout
                     </button>
@@ -138,23 +160,28 @@ const Navbar = () => {
             )}
           </div>
         ) : (
-          <div className="navbar-end flex flex-col lg:flex-row lg:mt-0 ml-20 gap-2 ">
-            <Link
-              to="/auth/login"
-              className="btn btn-primary bg-gradient-to-r from-[#632EE3] to-[#9F62F2]"
-            >
+          <div className="flex gap-2">
+            <Link to="/auth/login" className="btn btn-primary text-white">
               Login
             </Link>
-            <Link
-              to="/auth/register"
-              className="btn btn-primary w-18 lg:w-22 bg-gradient-to-r from-[#632EE3] to-[#9F62F2] "
-            >
+            <Link to="/auth/register" className="btn btn-primary text-white ">
               Sign Up
             </Link>
           </div>
         )}
       </div>
-      <Toaster></Toaster>
+      <Toaster
+        toastOptions={{
+          success: {
+            style: { background: "#22C55E", color: "#fff" },
+            iconTheme: { primary: "#fff", secondary: "#22C55E" },
+          },
+          error: {
+            style: { background: "#EF4444", color: "#fff" },
+            iconTheme: { primary: "#fff", secondary: "#EF4444" },
+          },
+        }}
+      />
     </div>
   );
 };

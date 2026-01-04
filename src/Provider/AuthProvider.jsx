@@ -27,6 +27,9 @@ const AuthProvider = ({children}) => {
     const signOutUser =() => {
     return signOut (auth)
   }
+    const updateUser = (updateData)=>{
+    return updateProfile(auth.currentUser,updateData)
+  }
 
     useEffect(()=>{
       const unsubscribe=  onAuthStateChanged(auth,(currentUser)=>{
@@ -47,6 +50,7 @@ const AuthProvider = ({children}) => {
          signOutUser,
          loading,
          setLoading,
+          updateUser,
          signInWihGoogle,
     }
     return <AuthContext value={authData}>

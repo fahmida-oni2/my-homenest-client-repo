@@ -5,6 +5,7 @@ import ChoosingSec from "../../Components/ChoosingSec/ChoosingSec";
 import { FaFacebook, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router";
 import LatestProperty from "../../Components/LatestProperty/LatestProperty";
+import Statistics from "../../Components/Statistics/Statistics";
 
 const Home = () => {
   const latestPropertyPromise = fetch(
@@ -14,16 +15,16 @@ const Home = () => {
     <div>
       <Banner></Banner>
 
-      <section className=" py-16 bg-gray-50 text-center px-4">
-        <h2 className="text-4xl text-black font-bold mb-4 animate__animated animate__fadeInDown">
-          Our Latest Properties
+      <section className=" py-16 bg-base-200 text-center px-4">
+        <h2 className="text-4xl text-secondary font-black mb-4 animate__animated animate__fadeInDown">
+          Our <span className="text-primary">Latest Properties</span>
         </h2>
-        <p className="text-gray-600 mb-12 animate__animated animate__fadeInUp">
+        <p className="text-base-content/70 mb-12 animate__animated animate__fadeInUp">
           Effortlessly find, compare, and secure our latest properties.
         </p>
         <Suspense
           fallback={
-            <div className="text-center p-20 text-lg font-semibold text-indigo-500 animate-pulse">
+            <div className="text-center  text-lg font-semibold text-indigo-500 animate-pulse">
               Loading the Latest Properties...
             </div>
           }
@@ -32,203 +33,58 @@ const Home = () => {
         </Suspense>
       </section>
 
-      <section className=" py-16 bg-gray-50">
+      <section className=" py-16 bg-base-100">
         <ChoosingSec></ChoosingSec>
       </section>
+  <section className=" py-16 bg-base-100">
+        <Statistics></Statistics>
+      </section>
+
       {/* Agent */}
-      <section className=" py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto text-center px-4">
-          <h2 className="text-4xl text-black font-bold mb-4 animate__animated animate__fadeInDown">
-            Real Estate Agent
+      <section className=" py-16 bg-base-200">
+        <div className="ml-5 mr-5 mx-auto text-center px-4">
+          <h2 className="text-4xl text-secondary font-black mb-4 animate__animated animate__fadeInDown">
+            Meet Our <span className="text-primary">Expert Agents</span>
           </h2>
-          <p className="text-gray-600 mb-12 animate__animated animate__fadeInUp">
-            Meet Our agents and get their contact details and link to their
-            agent profile.
+          <p className="text-base-content/70 mb-12 animate__animated animate__fadeInUp">
+           Connect with our verified professionals to get the best market insights.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-10">
-            <div className="flex flex-col items-center bg-white p-6 rounded-xl shadow-md   animate__animated animate__fadeInLeft">
-              <div>
-                <img
-                  src="https://i.ibb.co.com/DHtBCZ6F/image.png"
-                  alt=""
-                  className="w-50 h-50  rounded-full"
-                />
-                <span className="absolute bg-primary bottom-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-md shadow-md">
-                  4 listings
-                </span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Mike Rutter</h3>
-              <p className="text-sm text-gray-600 mt-1">Member ID: 987654321</p>
-              <p className="text-gray-700 mt-4 text-sm leading-relaxed">
-                Mike Rutter is a highly skilled and personable real estate agent
-                with a strong reputation ...
-              </p>
-              <div className="flex justify-between items-center mt-6 pt-4  border-gray-200">
-                <div className="flex space-x-3 text-gray-500 text-lg">
-                  <Link href="" className="hover:text-blue-600">
-                    <FaFacebook></FaFacebook>
-                  </Link>
-                  <Link href="" className="hover:text-blue-600">
-                    <FaXTwitter></FaXTwitter>
-                  </Link>
-                  <Link href="" className="hover:text-blue-600">
-                    <FaLinkedin></FaLinkedin>
-                  </Link>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { name: "Mike Rutter", id: "987654321", listings: 4, img: "https://i.ibb.co.com/DHtBCZ6F/image.png" },
+              { name: "Janet Richmond", id: "987654322", listings: 2, img: "https://i.ibb.co.com/gLg1bZx5/person1.jpg" },
+              { name: "Maria Barlo", id: "987654323", listings: 5, img: "https://i.ibb.co.com/7JGxC0QY/person2jpg.jpg" },
+              { name: "Stephen Cheves", id: "987654325", listings: 3, img: "https://i.ibb.co.com/W4pVzyd5/person3.jpg" }
+            ].map((agent, index) => (
+              <div key={index} className="group flex flex-col items-center bg-base-100 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-base-300 animate__animated animate__fadeInUp">
+                <div className="relative mb-4">
+                  <img
+                    src={agent.img}
+                    alt={agent.name}
+                    className="w-32 h-32 rounded-full object-cover border-4 border-primary/20 group-hover:border-primary transition-all"
+                  />
+                  <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-lg">
+                    {agent.listings} listings
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-secondary">{agent.name}</h3>
+                <p className="text-xs text-primary font-semibold mb-3">ID: {agent.id}</p>
+                <p className="text-base-content/60 text-sm leading-relaxed mb-6">
+                  Highly skilled professional with a strong reputation for excellence in the real estate market.
+                </p>
+                <div className="flex space-x-4">
+                  <Link to="#" className="text-base-content/40 hover:text-primary transition-colors text-xl"><FaFacebook /></Link>
+                  <Link to="#" className="text-base-content/40 hover:text-primary transition-colors text-xl"><FaXTwitter /></Link>
+                  <Link to="#" className="text-base-content/40 hover:text-primary transition-colors text-xl"><FaLinkedin /></Link>
                 </div>
               </div>
-            </div>
-            <div className="flex flex-col items-center bg-white p-6 rounded-xl shadow-md   animate__animated animate__fadeInLeft">
-              <div>
-                <img
-                  src="https://i.ibb.co.com/gLg1bZx5/person1.jpg"
-                  alt=""
-                  className="w-50 h-50  rounded-full"
-                />
-                <span className="absolute bg-primary bottom-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-md shadow-md">
-                  2 listings
-                </span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Janet Richmond</h3>
-              <p className="text-sm text-gray-600 mt-1">Member ID: 987654322</p>
-              <p className="text-gray-700 mt-4 text-sm leading-relaxed">
-                Janet Richmond is a highly skilled and personable real estate
-                agent with a strong reputation ...
-              </p>
-              <div className="flex justify-between items-center mt-6 pt-4  border-gray-200">
-                <div className="flex space-x-3 text-gray-500 text-lg">
-                  <Link href="" className="hover:text-blue-600">
-                    <FaFacebook></FaFacebook>
-                  </Link>
-                  <Link href="" className="hover:text-blue-600">
-                    <FaXTwitter></FaXTwitter>
-                  </Link>
-                  <Link href="" className="hover:text-blue-600">
-                    <FaLinkedin></FaLinkedin>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col items-center bg-white p-6 rounded-xl shadow-md   animate__animated animate__fadeInLeft">
-              <div>
-                <img
-                  src="https://i.ibb.co.com/7JGxC0QY/person2jpg.jpg"
-                  alt=""
-                  className="w-50 h-50  rounded-full"
-                />
-                <span className="absolute bg-primary bottom-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-md shadow-md">
-                  5 listings
-                </span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Maria Barlo</h3>
-              <p className="text-sm text-gray-600 mt-1">Member ID: 987654323</p>
-              <p className="text-gray-700 mt-4 text-sm leading-relaxed">
-                Maria Barlo is a highly skilled and personable real estate agent
-                with a strong reputation ...
-              </p>
-              <div className="flex justify-between items-center mt-6 pt-4  border-gray-200">
-                <div className="flex space-x-3 text-gray-500 text-lg">
-                  <Link href="" className="hover:text-blue-600">
-                    <FaFacebook></FaFacebook>
-                  </Link>
-                  <Link href="" className="hover:text-blue-600">
-                    <FaXTwitter></FaXTwitter>
-                  </Link>
-                  <Link href="" className="hover:text-blue-600">
-                    <FaLinkedin></FaLinkedin>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col items-center bg-white p-6 rounded-xl shadow-md   animate__animated animate__fadeInLeft">
-              <div>
-                <img
-                  src="https://i.ibb.co.com/W4pVzyd5/person3.jpg"
-                  alt=""
-                  className="w-50 h-50  rounded-full"
-                />
-                <span className="absolute  bottom-4 left-4 bg-primary text-white text-xs font-semibold px-3 py-1 rounded-md shadow-md">
-                  3 listings
-                </span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Stephen Cheves</h3>
-              <p className="text-sm text-gray-600 mt-1">Member ID: 987654325</p>
-              <p className="text-gray-700 mt-4 text-sm leading-relaxed">
-                Stephen Cheves is a highly skilled and personable real estate
-                agent with a strong reputation ...
-              </p>
-              <div className="flex justify-between items-center mt-6 pt-4  border-gray-200">
-                <div className="flex space-x-3 text-gray-500 text-lg">
-                  <Link href="" className="hover:text-blue-600">
-                    <FaFacebook></FaFacebook>
-                  </Link>
-                  <Link href="" className="hover:text-blue-600">
-                    <FaXTwitter></FaXTwitter>
-                  </Link>
-                  <Link href="" className="hover:text-blue-600">
-                    <FaLinkedin></FaLinkedin>
-                  </Link>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Enquiry form */}
-      <section className=" py-16 bg-gray-50">
-        <form>
-          <div className="bg-base-200 max-w-6xl mx-auto  px-4 ">
-            <div className="hero-content flex flex-col ">
-              <div>
-                <h1 className="text-4xl font-bold mb-4 animate__animated animate__fadeInDown">
-                  Make an Enquiry
-                </h1>
-              </div>
-              <div className=" bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                <div className="card-body ">
-                  <fieldset className="fieldset">
-                    <label className="label font-bold text-black">Name</label>
-                    <input
-                      type="Name"
-                      className="input"
-                      placeholder="Name"
-                      required
-                    />
-                    <label className="label font-bold text-black">Email</label>
-                    <input
-                      type="email"
-                      className="input"
-                      placeholder="Email"
-                      required
-                    />
-                    <label className="label font-bold text-black">
-                      Mobile No
-                    </label>
-                    <input
-                      type="Mobile"
-                      className="input"
-                      placeholder="Mobile No"
-                      required
-                    />
-                    <label className="label font-bold text-black">
-                      Message
-                    </label>
-                    <input
-                      type="text"
-                      className="input"
-                      placeholder="Message"
-                    />
-                    <button className="btn btn-primary hover:bg-indigo-300 mt-4">
-                      Submit
-                    </button>
-                  </fieldset>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
-      </section>
+      
     </div>
   );
 };

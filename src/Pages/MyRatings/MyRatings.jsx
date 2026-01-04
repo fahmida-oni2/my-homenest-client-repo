@@ -110,12 +110,23 @@ const MyRatings = () => {
       <div className="flex justify-center items-center mb-5 mt-5">
         <Link
           to="/all-properties"
-          className="btn rounded-xl text-white bg-gradient-to-r from-[#632EE3] to-[#9F62F2] w-50"
+          className="btn  text-white bg-primary w-50"
         >
           Go Back
         </Link>
       </div>
-      <Toaster></Toaster>
+        <Toaster
+              toastOptions={{
+                success: {
+                  style: { background: "#22C55E", color: "#fff" },
+                  iconTheme: { primary: "#fff", secondary: "#22C55E" },
+                },
+                error: {
+                  style: { background: "#EF4444", color: "#fff" },
+                  iconTheme: { primary: "#fff", secondary: "#EF4444" },
+                },
+              }}
+            />
     </div>
   );
 };

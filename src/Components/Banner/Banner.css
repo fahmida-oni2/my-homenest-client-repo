@@ -1,0 +1,16 @@
+
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+    color: #22C55E !important; 
+}
+
+
+.mySwiper .swiper-pagination-bullet-active {
+    background: #22C55E !important;
+}
+
+
+.hero {
+    background-size: cover;
+    background-position: center;
+}

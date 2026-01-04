@@ -13,70 +13,104 @@ import AuthLayouts from "../Components/AuthLayouts/AuthLayouts";
 import PrivateRoutes from "./PrivateRoutes";
 import PropertyDetails from "../Pages/PropertyDetails/PropertyDetails";
 import UpdateProperty from "../Pages/UpdateProperty/UpdateProperty";
+import DashboardLayout from "../DashboardLayout/DashboardLayout";
+import MyProfile from "../Pages/MyProfile/MyProfile";
+import About from "../Pages/About/About";
+import Contact from "../Pages/Contact/Contact";
+import Privacy from "../Pages/Privacy/Privacy";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component:Root,
-    errorElement:<ErrorPage></ErrorPage>,
-    hydrateFallbackElement:<Loading></Loading>,
-    children:[
-        {
-            index: true,
-            Component:Home
-        },
-         {
-            path:'/all-properties',
-            element:<AllProperties></AllProperties>,
-            loader:()=> fetch('https://real-estate-api-server.vercel.app/all-properties')
-        },
-         {
-            path:'/add-properties',
-            element:<PrivateRoutes>
-              <AddProperties></AddProperties>
-            </PrivateRoutes>
-        },
-         {
-            path:'/my-properties',
-            element:<PrivateRoutes>
-              <MyProperties></MyProperties>
-            </PrivateRoutes>
-        },
-         {
-            path:'/my-ratings',
-            element:<PrivateRoutes>
-              <MyRatings></MyRatings>
-            </PrivateRoutes>
-        },
-          {
-            path:'/all-properties/:id',
-           element: <PrivateRoutes>
-            <PropertyDetails></PropertyDetails>
-           </PrivateRoutes>,
-            loader:({params})=> fetch(`https://real-estate-api-server.vercel.app/all-properties/${params.id}`)
-        },
-         {
-            path:'/update-properties/:id',
-           element: <PrivateRoutes>
-           <UpdateProperty></UpdateProperty>
-           </PrivateRoutes>,
-             loader:({params})=> fetch(`https://real-estate-api-server.vercel.app/all-properties/${params.id}`)
-        },
+    Component: Root,
+    errorElement: <ErrorPage></ErrorPage>,
+    hydrateFallbackElement: <Loading></Loading>,
+    children: [
+      {
+        index: true,
+        Component: Home,
+      },
+      {
+        path: "/all-properties",
+        element: <AllProperties></AllProperties>,
+        loader: () =>
+          fetch("https://real-estate-api-server.vercel.app/all-properties"),
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
+      {
+        path: "/privacy",
+        element: <Privacy></Privacy>,
+      },
 
-    ]
+      {
+        path: "/all-properties/:id",
+        element: <PropertyDetails></PropertyDetails>,
+        loader: ({ params }) =>
+          fetch(
+            `https://real-estate-api-server.vercel.app/all-properties/${params.id}`
+          ),
+      },
+    ],
   },
   {
-          path:'/auth',
-          element:<AuthLayouts></AuthLayouts>,
-          children:[
-              {
-                path: '/auth/login',
-                element:<Login></Login>,
-              },
-              {
-                path: '/auth/register',
-                element:<Register></Register>,
-              }
-          ],
-        }
+    path: "/auth",
+    element: <AuthLayouts></AuthLayouts>,
+    errorElement: <ErrorPage></ErrorPage>,
+    hydrateFallbackElement: <Loading></Loading>,
+    children: [
+      {
+        path: "/auth/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/auth/register",
+        element: <Register></Register>,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoutes>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoutes>
+    ),
+    errorElement: <ErrorPage></ErrorPage>,
+    hydrateFallbackElement: <Loading></Loading>,
+
+    children: [
+      {
+        path: "profile",
+        element: <MyProfile></MyProfile>,
+      },
+      {
+        path: "add-properties",
+        element: <AddProperties></AddProperties>,
+      },
+      {
+        path: "my-properties",
+        element: <MyProperties></MyProperties>,
+      },
+
+      {
+        path: "my-ratings",
+        element: <MyRatings></MyRatings>,
+      },
+      {
+        path: "update-properties/:id",
+        element: <UpdateProperty></UpdateProperty>,
+        loader: ({ params }) =>
+          fetch(
+            `https://real-estate-api-server.vercel.app/all-properties/${params.id}`
+          ),
+      },
+    ],
+  },
 ]);

@@ -2,3 +2,45 @@
 @plugin "daisyui";
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+
+@plugin "daisyui/theme" {
+  name: "HomeNest";
+  default: true;
+  color-scheme: light;
+
+  /* Primary: The "Action" Green (#22C55E) */
+  /* Used for main buttons, price tags, and active states */
+  --color-primary: #22C55E;
+  --color-primary-content: #ffffff;
+
+  /* Secondary: The "Corporate" Navy (#0F172A) */
+  /* Used for the navigation bar, footers, and heavy headings */
+  --color-secondary: #0F172A;
+  --color-secondary-content: #ffffff;
+
+  /* Accent: A soft slate or sky blue */
+  /* Used for secondary highlights or "New" badges */
+  --color-accent: #3B82F6;
+  --color-accent-content: #ffffff;
+
+  /* Neutral: For UI elements like input borders or gray buttons */
+  --color-neutral: #334155;
+  --color-neutral-content: #ffffff;
+
+  /* Base: The "Clean" Backgrounds */
+  --color-base-100: #ffffff; /* Main page background */
+  --color-base-200: #F8FAFC; /* Card backgrounds or section offsets */
+  --color-base-300: #F1F5F9; /* Borders and dividers */
+  --color-base-content: #0F172A; /* Main body text color */
+
+  /* Functional Colors */
+  --color-info: #0EA5E9;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+
+  /* Custom variables for a real estate feel */
+  --radius-selector: 0.5rem; /* Realar uses slightly rounded corners */
+  --border-btn: 1px;
+}

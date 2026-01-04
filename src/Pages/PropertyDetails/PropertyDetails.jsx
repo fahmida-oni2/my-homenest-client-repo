@@ -4,20 +4,38 @@ import Loading from "../../Components/Loading/Loading";
 import toast, { Toaster } from "react-hot-toast";
 import { Controller, useForm } from "react-hook-form";
 import RatingComponent from "../../Components/RatingComponent/RatingComponent";
+import {
+  HiOutlineMail,
+  HiOutlineCalendar,
+  HiOutlineLocationMarker,
+  HiOutlineUserCircle,
+  HiOutlineArrowLeft,
+} from "react-icons/hi";
+import { RiMoneyDollarCircleLine, RiHomeSmileLine } from "react-icons/ri";
+
 const defaultReviewValues = {
   reviewerName: "",
   reviewText: "",
   rating: 0,
 };
+
 const PropertyDetails = () => {
   const loaderData = useLoaderData();
-  //   console.log(data)
-
   const navigate = useNavigate();
-  const { _id, propertyName, price, imageUrl } = loaderData?.result || {};
-  if (!loaderData) {
-    return <Loading></Loading>;
-  }
+  const data = loaderData?.result || {};
+  const {
+    _id,
+    propertyName,
+    price,
+    imageUrl,
+    category,
+    postedByName,
+    postedByEmail,
+    postedDate,
+    location,
+    description,
+  } = data;
+
   const {
     register,
     handleSubmit,
@@ -28,173 +46,207 @@ const PropertyDetails = () => {
     defaultValues: defaultReviewValues,
   });
 
+  if (!loaderData) return <Loading />;
+
   function onSubmit(reviewData) {
     const submissionPayload = {
       propertyId: _id,
-      propertyName: propertyName,
-      price: price,
-      imageUrl: imageUrl,
+      propertyName,
+      price,
+      imageUrl,
       ...reviewData,
       submissionDate: new Date().toISOString(),
     };
 
     const existingReviews = JSON.parse(localStorage.getItem("reviews") || "[]");
-    const updatedReviews = [...existingReviews, submissionPayload];
-    localStorage.setItem("reviews", JSON.stringify(updatedReviews));
-    toast.success("Review submitted");
-    navigate(`/my-ratings`, { state: { reviewData: submissionPayload } });
+    localStorage.setItem(
+      "reviews",
+      JSON.stringify([...existingReviews, submissionPayload])
+    );
+    toast.success("Review submitted to your nest!");
+    navigate(`/dashboard/my-ratings`, {
+      state: { reviewData: submissionPayload },
+    });
   }
-  const data = loaderData?.result || {};
+
   return (
-    <div>
-      <div className="lg:flex grid grid-cols-1 gap-5 m-10  items-center  ">
-        <div className=" mr-10">
-          <img
-            className="lg:w-150 lg:h-100 md:w-[200px] w-[250px] mx-auto lg:object-cover shadow-xl  border-gray-500   "
-            src={data.imageUrl}
-            alt=""
-          />
-        </div>
-        <div className="space-y-3 p-5">
-          <h1 className="font-extrabold text-3xl text-center">
-            {data.propertyName}
-          </h1>
-          <p className="font-bold text-2xl text-center">
-            Category: {data.category}
-          </p>
-          <p className="font-bold text-2xl text-center">
-            Posted by:{" "}
-            <span className="text-[#632EE3]">{data.postedByName}</span>
-          </p>
-          <p className="font-bold text-2xl text-center">
-            Contact Email:
-            <span className="text-[#632EE3]">{data.postedByEmail}</span>
-          </p>
-          <p className="font-bold text-2xl text-center">
-            Posted Date:
-            <span className="text-[#632EE3]">{data.postedDate}</span>
-          </p>
-          <div className="border-b border-solid border-b-gray-300 mt-5"></div>
-          <div className="lg:flex gap-2 m-5 justify-center items-center">
-            <div className="mr-10 flex gap-2 justify-center items-center">
-              <p className="font-bold text-2xl text-center"> Location:</p>
-              <h1 className="font-extrabold text-2xl text-center">
-                {data.location}
-              </h1>
-            </div>
-            <div className="mr-10 flex gap-2 justify-center items-center">
-              <p className="font-bold text-2xl text-center"> Price:</p>
-              <h1 className="font-extrabold text-2xl text-center">
-                {data.price}
-              </h1>
-            </div>
-          </div>
-          <div className="mr-10">
-            <p className="font-bold text-center text-3xl mb-3 border-b-2 border-solid border-b-gray-400">
-              Description
-            </p>
-            <h1 className="font-extrabold text-2xl text-center">
-              {data.description}
-            </h1>
-          </div>
-        </div>
-      </div>
-
-      {/* --- Review Submission Form (Replacing Enrollment Form) --- */}
-      <div className="flex justify-center items-center">
-        <div className="card bg-base-100 w-full lg:max-w-sm shrink-0 shadow-2xl hero-content flex-col mt-5 lg:mt-0">
-          <div className="card-body p-6 w-full">
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="pt-3 border-t mt-3 border-gray-200 space-y-3"
-            >
-              <h4 className="text-2xl font-bold text-center ">
-                Submit Your Review
-              </h4>
-
-              <div>
-                <label
-                  htmlFor="reviewerName"
-                  className="label block text-base font-medium"
-                >
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="reviewerName"
-                  name="UserName"
-                  {...register("reviewerName")}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-200 rounded-md bg-gray-50 text-gray-600 sm:text-sm cursor-not-allowed"
-                />
-                {errors.reviewerName && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.reviewerName.message}
-                  </p>
-                )}
-              </div>
-              <label className="label block text-base font-medium mb-2">
-                Your Rating
-              </label>
-              <Controller
-                name="rating"
-                control={control}
-                rules={{
-                  validate: (value) =>
-                    value > 0 || "Please provide a star rating",
-                }}
-                render={({ field }) => (
-                  <RatingComponent {...field} name="rating" />
-                )}
-              />
-              {errors.rating && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.rating.message}
-                </p>
-              )}
-              <div>
-                <label
-                  htmlFor="reviewText"
-                  className="label block text-base font-medium"
-                >
-                  Review Text
-                </label>
-                <textarea
-                  id="reviewText"
-                  rows="4"
-                  {...register("reviewText", {
-                    required: "Review text is required",
-                    minLength: { value: 10, message: "Minimum 10 characters" },
-                  })}
-                  className="input w-full p-3 border border-gray-300 rounded-lg focus:ring-[#632EE3] focus:border-[#632EE3]"
-                  placeholder="Write your review here..."
-                />
-                {errors.reviewText && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.reviewText.message}
-                  </p>
-                )}
-              </div>
-
-              <button
-                type="submit"
-                className="btn bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-white w-full py-3 rounded-lg font-semibold text-lg transition shadow-md"
-              >
-                Submit
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div className="flex justify-center items-center mb-5 mt-5">
+    <div className="bg-[#FAFBFF] min-h-screen pb-20">
+      <div className="ml-5 mr-5 mx-auto px-4 pt-10">
         <Link
           to="/all-properties"
-          className="btn rounded-xl text-white bg-gradient-to-r from-[#632EE3] to-[#9F62F2] w-50"
+          className="inline-flex items-center gap-2 text-gray-500 hover:text-primary transition-colors mb-6 font-medium"
         >
-          Go Back
+          <HiOutlineArrowLeft /> Back to Explore
         </Link>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-8 space-y-8">
+            <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+              <img
+                className="w-full h-[500px] object-cover"
+                src={imageUrl}
+                alt={propertyName}
+              />
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+              <div className="flex justify-between items-center mb-6">
+                <span className="badge badge-primary badge-lg py-4 px-6 rounded-xl font-bold uppercase tracking-wider text-xs">
+                  {category}
+                </span>
+                <div className="flex items-center gap-1 text-2xl font-black text-secondary">
+                  <RiMoneyDollarCircleLine className="text-primary" />
+                  {price}
+                </div>
+              </div>
+
+              <h1 className="text-4xl font-black text-secondary mb-4 tracking-tight">
+                {propertyName}
+              </h1>
+
+              <div className="flex items-center gap-2 text-gray-500 mb-8">
+                <HiOutlineLocationMarker className="text-primary text-xl" />
+                <span className="text-lg font-medium">{location}</span>
+              </div>
+
+              <hr className="border-gray-100 my-6" />
+
+              <h3 className="text-xl font-bold text-secondary mb-3 flex items-center gap-2">
+                <RiHomeSmileLine className="text-primary" /> About This Nest
+              </h3>
+              <p className="text-gray-600 leading-relaxed text-lg">
+                {description}
+              </p>
+            </div>
+          </div>
+
+          <div className="lg:col-span-4 space-y-6">
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+              <h3 className="font-bold text-secondary text-lg mb-4">
+                Listing Details
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-2xl">
+                  <HiOutlineUserCircle className="text-primary text-2xl" />
+                  <div>
+                    <p className="text-xs text-gray-400 font-bold uppercase">
+                      Posted By
+                    </p>
+                    <p className="text-sm font-bold text-secondary">
+                      {postedByName}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-2xl">
+                  <HiOutlineMail className="text-primary text-2xl" />
+                  <div>
+                    <p className="text-xs text-gray-400 font-bold uppercase">
+                      Contact Email
+                    </p>
+                    <p className="text-sm font-bold text-secondary">
+                      {postedByEmail}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-2xl">
+                  <HiOutlineCalendar className="text-primary text-2xl" />
+                  <div>
+                    <p className="text-xs text-gray-400 font-bold uppercase">
+                      Date Listed
+                    </p>
+                    <p className="text-sm font-bold text-secondary">
+                      {postedDate}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Review Form */}
+            <div className="bg-base-100 p-8 rounded-3xl shadow-xl ">
+              <h4 className="text-2xl font-black text-center mb-6">
+                Leave a Review
+              </h4>
+
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                <div>
+                  <label className="text-sm font-bold  ml-1">Your Name</label>
+                  <input
+                    type="text"
+                    {...register("reviewerName", {
+                      required: "Name is required",
+                    })}
+                    className="w-full mt-1 px-4 py-3 rounded-xl bg-base-100 border border-base/20  placeholder:text-white/30 outline-none focus:border-primary transition-all"
+                    placeholder="John Doe"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-sm font-bold  ml-1">Rating</label>
+                  <div className=" p-2 rounded-xl mt-1 border  border-base/20">
+                    <Controller
+                      name="rating"
+                      control={control}
+                      rules={{
+                        validate: (v) =>
+                          v > 0 || "Please provide a star rating",
+                      }}
+                      render={({ field }) => (
+                        <RatingComponent {...field} name="rating" />
+                      )}
+                    />
+                  </div>
+                  {errors.rating && (
+                    <p className="text-rose-400 text-xs mt-1">
+                      {errors.rating.message}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="text-sm font-bold  ml-1">Message</label>
+                  <textarea
+                    rows="4"
+                    {...register("reviewText", {
+                      required: "Review text is required",
+                      minLength: {
+                        value: 10,
+                        message: "Tell us more! (Min 10 chars)",
+                      },
+                    })}
+                    className="w-full mt-1 px-4 py-3 rounded-xl  border border-base/20  placeholder:text-white/30 outline-none focus:border-primary transition-all"
+                    placeholder="How was your experience?"
+                  />
+                  {errors.reviewText && (
+                    <p className="text-rose-400 text-xs mt-1">
+                      {errors.reviewText.message}
+                    </p>
+                  )}
+                </div>
+
+                <button
+                  type="submit"
+                  className="btn btn-primary w-full py-4 rounded-xl border-none font-bold text-lg shadow-lg shadow-primary/30"
+                >
+                  Submit Review
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="border-b-2 border-solid border-b-gray-400 mb-5 ml-7 mr-7"></div>
-      <Toaster></Toaster>
+      <Toaster
+        toastOptions={{
+          success: {
+            style: { background: "#22C55E", color: "#fff" },
+            iconTheme: { primary: "#fff", secondary: "#22C55E" },
+          },
+          error: {
+            style: { background: "#EF4444", color: "#fff" },
+            iconTheme: { primary: "#fff", secondary: "#EF4444" },
+          },
+        }}
+      />
     </div>
   );
 };

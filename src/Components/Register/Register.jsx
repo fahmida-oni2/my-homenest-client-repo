@@ -154,7 +154,18 @@ const Register = () => {
           </p>
         </div>
       </div>
-      <Toaster></Toaster>
+        <Toaster
+              toastOptions={{
+                success: {
+                  style: { background: "#22C55E", color: "#fff" },
+                  iconTheme: { primary: "#fff", secondary: "#22C55E" },
+                },
+                error: {
+                  style: { background: "#EF4444", color: "#fff" },
+                  iconTheme: { primary: "#fff", secondary: "#EF4444" },
+                },
+              }}
+            />
     </div>
   );
 };
